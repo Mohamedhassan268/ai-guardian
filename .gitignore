@@ -1,0 +1,7 @@
+# Claude Code personal files
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/agent-memory-local/
+
+# Planning docs kept local-only
+Guardian AI – Master Execution Plan.pdf
