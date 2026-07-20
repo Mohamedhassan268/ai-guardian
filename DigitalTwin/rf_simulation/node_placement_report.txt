@@ -1,0 +1,109 @@
+Guardian AI – Node Placement Optimization Report
+=======================================================
+
+Hall: 12.2m x 17.8m x 4.0m
+Nodes tested: 4
+Frequency: 2.437 GHz
+Configurations tested: 7
+
+=======================================================
+RESULTS (sorted by median error)
+=======================================================
+
+Config: 4_Corners <-- BEST
+  Median error:    0.0 m
+  Mean error:      0.131 m
+  Max error:       1.601 m
+  Correct bench:   100.0%
+  Correct seat:    88.9%
+  Node positions:
+    N1: (1.0, 1.0, 3.85)
+    N2: (11.2, 1.0, 3.85)
+    N3: (1.0, 16.8, 3.85)
+    N4: (11.2, 16.8, 3.85)
+
+Config: 4_Wall_Midpoints
+  Median error:    0.0 m
+  Mean error:      0.119 m
+  Max error:       1.2 m
+  Correct bench:   100.0%
+  Correct seat:    89.9%
+  Node positions:
+    N1: (6.1, 1.0, 3.85)
+    N2: (6.1, 16.8, 3.85)
+    N3: (1.0, 8.9, 3.85)
+    N4: (11.2, 8.9, 3.85)
+
+Config: Diamond
+  Median error:    0.0 m
+  Mean error:      0.08 m
+  Max error:       1.2 m
+  Correct bench:   100.0%
+  Correct seat:    92.9%
+  Node positions:
+    N1: (6.1, 2.67, 3.85)
+    N2: (6.1, 15.13, 3.85)
+    N3: (1.0, 8.9, 3.85)
+    N4: (11.2, 8.9, 3.85)
+
+Config: 2x2_Grid
+  Median error:    0.0 m
+  Mean error:      0.087 m
+  Max error:       1.601 m
+  Correct bench:   100.0%
+  Correct seat:    92.9%
+  Node positions:
+    N1: (3.05, 4.45, 3.85)
+    N2: (9.149999999999999, 4.45, 3.85)
+    N3: (3.05, 13.350000000000001, 3.85)
+    N4: (9.149999999999999, 13.350000000000001, 3.85)
+
+Config: Front_Heavy
+  Median error:    0.0 m
+  Mean error:      0.145 m
+  Max error:       1.601 m
+  Correct bench:   100.0%
+  Correct seat:    87.9%
+  Node positions:
+    N1: (1.0, 1.0, 3.85)
+    N2: (11.2, 1.0, 3.85)
+    N3: (3.05, 10.68, 3.85)
+    N4: (9.149999999999999, 10.68, 3.85)
+
+Config: Optimal_Spread
+  Median error:    0.0 m
+  Mean error:      0.168 m
+  Max error:       1.679 m
+  Correct bench:   100.0%
+  Correct seat:    86.9%
+  Node positions:
+    N1: (2.44, 3.5600000000000005, 3.85)
+    N2: (9.76, 3.5600000000000005, 3.85)
+    N3: (2.44, 14.240000000000002, 3.85)
+    N4: (9.76, 14.240000000000002, 3.85)
+
+Config: Y_Spread
+  Median error:    1.174 m
+  Mean error:      2.557 m
+  Max error:       11.18 m
+  Correct bench:   100.0%
+  Correct seat:    49.5%
+  Node positions:
+    N1: (6.1, 1.7800000000000002, 3.85)
+    N2: (6.1, 6.586, 3.85)
+    N3: (6.1, 11.214, 3.85)
+    N4: (6.1, 16.02, 3.85)
+
+=======================================================
+RECOMMENDATION
+=======================================================
+
+Best configuration: 4_Corners
+Median localization error: 0.0 m
+Correct bench rate: 100.0%
+
+Place RF nodes at these positions:
+  Node 1: X=1.0m, Y=1.0m, Height=3.85m
+  Node 2: X=11.2m, Y=1.0m, Height=3.85m
+  Node 3: X=1.0m, Y=16.8m, Height=3.85m
+  Node 4: X=11.2m, Y=16.8m, Height=3.85m

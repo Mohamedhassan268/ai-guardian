@@ -1,0 +1,25 @@
+Guardian AI – RF Propagation Simulation Report
+==================================================
+
+Hall dimensions:     12.2m x 17.8m x 4.0m
+Total seats:         99
+RF nodes:            4
+Frequency:           2.437 GHz
+Path loss exponent:  2.8
+TX power:            0.0 dBm
+Noise std dev:       3.0 dB
+Samples per seat:    100
+Total samples:       39600
+
+RF Node Positions:
+  RF_NODE_01_FrontLeft: (1.0, 1.0, 3.85)
+  RF_NODE_02_FrontRight: (11.2, 1.0, 3.85)
+  RF_NODE_03_BackLeft: (1.0, 16.8, 3.85)
+  RF_NODE_04_BackRight: (11.2, 16.8, 3.85)
+
+Sample RSSI values (first 5 seats):
+  R01-L01 → N1:-56.23 N2:-69.96 N3:-73.12 N4:-75.33 dBm
+  R01-L02 → N1:-56.7 N2:-68.61 N3:-72.73 N4:-75.62 dBm
+  R01-C01 → N1:-59.05 N2:-66.41 N3:-72.92 N4:-73.78 dBm
+  R01-C02 → N1:-61.09 N2:-64.43 N3:-73.2 N4:-73.84 dBm
+  R01-C03 → N1:-62.79 N2:-62.77 N3:-73.42 N4:-73.63 dBm
