@@ -62,6 +62,12 @@ Place real RF hardware at these positions once it arrives.
 | [`rf_simulation/configuration_comparison.png`](rf_simulation/configuration_comparison.png) | Everyone | Median error / correct-bench rate across all 7 layouts tested |
 | [`rf_simulation/simulation_report.txt`](rf_simulation/simulation_report.txt) | Everyone | Simulation parameters (path loss exponent 2.8, TX power 0 dBm, noise σ 3.0 dB, 100 samples/seat) |
 
+All of the above are generated, not hand-written — the source scripts live in
+[`scripts/`](scripts/): `hall_builder.py` (Blender, produces `seat_map.json`),
+`node_placement_optimizer.py` (produces the `rf_simulation/` outputs), and
+`rf_propagation_simulator.py` (produces the `AI/training_data/` outputs). Rerun them to
+regenerate any of the above.
+
 ## Next steps by track
 
 **AI (localization):**
