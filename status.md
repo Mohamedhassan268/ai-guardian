@@ -12,7 +12,7 @@ and `ROADMAP.md` for deferred/out-of-scope ideas.
 | Phase 1 — Scope | (all) | — | Frozen: 2.4 GHz ISM, one room, RSSI localization, BLE + Wi-Fi classification |
 | Phase 2 — Digital Twin | Digital Twin | Person 1 | Complete |
 | Phase 3 — RF Intelligence | RF | Person 2 | In progress |
-| Phase 4 — Vision AI | Vision | Person 3 | Not started |
+| Phase 4 — Vision AI | Vision | Person 3 | In progress |
 | Phase 5 — Fusion & Platform | Fusion/Backend/Dashboard | — | Not started |
 
 ## Digital Twin (Phase 2) — complete
@@ -33,12 +33,32 @@ and `ROADMAP.md` for deferred/out-of-scope ideas.
 - Blocked/pending: no real-hardware results yet — all localization numbers
   below are simulation-only.
 
-## Vision AI (Phase 4) — not started
+## Vision AI (Phase 4) — in progress
 
-Next steps (from `DigitalTwin/README.md`):
-1. Set up YOLOv8 person detection.
-2. Implement homography: camera pixel position → (x, y) hall coordinate.
-3. Map detected people to seat IDs via `Shared/seat_map.json`.
+- Pipeline scaffolded in `Vision/perception/`: person detection, pixel→hall
+  homography, nearest-seat mapping, and shared-schema event emission
+  (`person_detected`), mirroring `AI/localization/`'s structure and tests.
+- Model: stock pretrained YOLOv8 (`yolov8n.pt` via `ultralytics`), filtered to
+  the COCO "person" class. Not trained or fine-tuned on any exam-hall-specific
+  data — this is an off-the-shelf detector, unlike the AI/localization model,
+  which is trained on Guardian AI's own simulated RSSI data.
+- 17 pytest tests pass, but they validate the pipeline's *logic* (homography
+  math, seat-mapping, event-schema shape, detection filtering) against
+  synthetic coordinates — not real detection accuracy.
+- **Blocked, same shape as RF's hardware blocker**: unlike RF, Digital Twin
+  never produced synthetic *visual* data (no rendered frames, no images) —
+  only JSON specs (seat map, camera position). There is currently no real or
+  rendered camera frame anywhere in this repo, so no detection/seat-accuracy
+  metrics exist yet, and none can be computed until one exists.
+- Next steps once visual data (real or rendered) is available:
+  1. Real camera calibration — capture pixel↔world point correspondences to
+     fit a real homography (`compute_homography`), replacing the synthetic
+     points used in tests.
+  2. Run the pretrained YOLOv8 detector against real/rendered frames and
+     measure actual detection + vision seat accuracy against the `CLAUDE.md`
+     targets below.
+  3. `ByteTrack` multi-frame tracking (named in `CLAUDE.md`'s Vision stack,
+     not yet in scope — meaningless without a live frame stream).
 
 ## Fusion & Platform (Phase 5) — not started
 
@@ -55,7 +75,7 @@ Next steps (from `DigitalTwin/README.md`):
 | Classification rate | >90% | Not yet measured |
 | Localization median error | <2 m | 0.0 m (simulated, 4-corner config) — not yet validated on real hardware |
 | Correct-bench rate | >80% | 100% (simulated) — not yet validated on real hardware |
-| Vision seat accuracy | >90% | Not yet measured |
+| Vision seat accuracy | >90% | Not yet measured — blocked on real/rendered visual data (see Vision AI section) |
 | Alert latency | <5 s | Not yet measured |
 | False alerts | <1/hr | Not yet measured |
 
@@ -65,9 +85,13 @@ Next steps (from `DigitalTwin/README.md`):
   deployment (passive sensing only, no demodulation) — not yet drafted.
 - Real RF hardware capture (Phase 3) is the current blocker for validating
   Digital Twin's simulated localization numbers.
+- Real or rendered camera frames (Phase 4) are the current blocker for
+  measuring any Vision detection/seat-accuracy numbers — no visual data of
+  any kind exists in this repo yet.
 
 ## Repo
 
 - Public: https://github.com/Mohamedhassan268/ai-guardian
-- Latest commit: `f9160a9` — Phase 2 Digital Twin deliverables (seat map, RF
-  simulation, training data).
+- Latest commit: `4496524` — Phase 2 scripts integrated into
+  `DigitalTwin/scripts/` (source of the seat map, RF simulation, and training
+  data artifacts).
