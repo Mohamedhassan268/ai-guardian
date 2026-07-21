@@ -1,0 +1,73 @@
+# Status
+
+_Last updated: 2026-07-21_
+
+Snapshot of where each track stands. See `CLAUDE.md` for architecture/conventions
+and `ROADMAP.md` for deferred/out-of-scope ideas.
+
+## Phase / track progress
+
+| Phase | Track | Owner | Status |
+|---|---|---|---|
+| Phase 1 — Scope | (all) | — | Frozen: 2.4 GHz ISM, one room, RSSI localization, BLE + Wi-Fi classification |
+| Phase 2 — Digital Twin | Digital Twin | Person 1 | Complete |
+| Phase 3 — RF Intelligence | RF | Person 2 | In progress |
+| Phase 4 — Vision AI | Vision | Person 3 | Not started |
+| Phase 5 — Fusion & Platform | Fusion/Backend/Dashboard | — | Not started |
+
+## Digital Twin (Phase 2) — complete
+
+- Full 3D exam hall modeled (12.2m x 17.8m x 4.0m), all 99 seats mapped with
+  coordinates — canonical data in `Shared/seat_map.json`.
+- RF node placement simulated across 7 layouts; 4-corner placement confirmed
+  and recorded in `DigitalTwin/rf_simulation/best_node_placement.json`.
+- 39,600-row synthetic RSSI dataset generated for AI training —
+  `AI/training_data/rssi_dataset.csv`.
+- Camera position defined for the Vision track (in `Shared/seat_map.json`).
+- Full handoff detail: `DigitalTwin/README.md`.
+
+## RF Intelligence (Phase 3) — in progress
+
+- Goal: capture real RSSI data with USRP B210 + GNU Radio to validate/replace
+  the simulated dataset above.
+- Blocked/pending: no real-hardware results yet — all localization numbers
+  below are simulation-only.
+
+## Vision AI (Phase 4) — not started
+
+Next steps (from `DigitalTwin/README.md`):
+1. Set up YOLOv8 person detection.
+2. Implement homography: camera pixel position → (x, y) hall coordinate.
+3. Map detected people to seat IDs via `Shared/seat_map.json`.
+
+## Fusion & Platform (Phase 5) — not started
+
+- Real-time RF service over MQTT/ZeroMQ.
+- Fusion engine: spatial + temporal correlation (signal-to-person matching by
+  timing, not position alone).
+- Backend/dashboard: FastAPI + PostgreSQL + React + Docker.
+
+## Success metrics (from CLAUDE.md)
+
+| Metric | Target | Current |
+|---|---|---|
+| Detection rate | >90% | Not yet measured |
+| Classification rate | >90% | Not yet measured |
+| Localization median error | <2 m | 0.0 m (simulated, 4-corner config) — not yet validated on real hardware |
+| Correct-bench rate | >80% | 100% (simulated) — not yet validated on real hardware |
+| Vision seat accuracy | >90% | Not yet measured |
+| Alert latency | <5 s | Not yet measured |
+| False alerts | <1/hr | Not yet measured |
+
+## Open items
+
+- Privacy/retention policy for captured signals must exist before any pilot
+  deployment (passive sensing only, no demodulation) — not yet drafted.
+- Real RF hardware capture (Phase 3) is the current blocker for validating
+  Digital Twin's simulated localization numbers.
+
+## Repo
+
+- Public: https://github.com/Mohamedhassan268/ai-guardian
+- Latest commit: `f9160a9` — Phase 2 Digital Twin deliverables (seat map, RF
+  simulation, training data).

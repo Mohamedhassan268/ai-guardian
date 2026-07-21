@@ -1,0 +1,33 @@
+Guardian AI - Localization Model Report
+==================================================
+
+Observation window size: 40 samples
+Test set size: 99
+Targets: median error < 2.0 m, correct-bench > 80%
+
+Model comparison:
+  FingerprintKNN:
+    median error:   0.000 m
+    mean error:     0.125 m
+    max error:      1.679 m
+    correct-bench:  94.9%
+    correct-seat:   89.9%
+  RegressorKNN:
+    median error:   0.527 m
+    mean error:     0.599 m
+    max error:      1.582 m
+    correct-bench:  84.8%
+    correct-seat:   73.7%
+
+Best model: FingerprintKNN
+
+Worst 5 seats by median error (best model):
+  R02-C01 (row 2, Center): 1.679 m median error, 0% correct-seat over 1 samples
+  R07-C03 (row 7, Center): 1.679 m median error, 0% correct-seat over 1 samples
+  R05-C05 (row 5, Center): 1.200 m median error, 0% correct-seat over 1 samples
+  R08-C03 (row 8, Center): 1.200 m median error, 0% correct-seat over 1 samples
+  R04-C03 (row 4, Center): 1.200 m median error, 0% correct-seat over 1 samples
+
+Note: single-sample RSSI classification is unreliable (noise ~3dB vs ~1-2dB
+inter-seat separation) — see window_size_sweep.png. Results here use a
+windowed observation (see data.py:load_wide docstring).

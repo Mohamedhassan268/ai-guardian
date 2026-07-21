@@ -5,3 +5,7 @@ CLAUDE.local.md
 
 # Planning docs kept local-only
 Guardian AI – Master Execution Plan.pdf
+
+# Python
+__pycache__/
+*.pyc

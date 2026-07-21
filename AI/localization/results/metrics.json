@@ -1,0 +1,26 @@
+{
+  "window_size": 40,
+  "n_test": 99,
+  "targets": {
+    "median_error_m": 2.0,
+    "correct_bench_rate": 0.8
+  },
+  "models": {
+    "FingerprintKNN": {
+      "median_error_m": 0.0,
+      "mean_error_m": 0.12496509435085618,
+      "max_error_m": 1.678772170367379,
+      "correct_bench_rate": 0.9494949494949495,
+      "correct_seat_rate": 0.898989898989899,
+      "n_test": 99
+    },
+    "RegressorKNN": {
+      "median_error_m": 0.5273747813462459,
+      "mean_error_m": 0.5991284514367853,
+      "max_error_m": 1.5821243440387356,
+      "correct_bench_rate": 0.8484848484848485,
+      "correct_seat_rate": 0.7373737373737373,
+      "n_test": 99
+    }
+  }
+}
