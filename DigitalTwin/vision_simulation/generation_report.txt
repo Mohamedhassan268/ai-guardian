@@ -1,0 +1,29 @@
+Guardian AI - Vision Dataset Generation Report (projection only)
+============================================================
+
+Generator: DigitalTwin/scripts/project_vision_dataset.py (no Blender, no images)
+Camera FOV (horizontal): 110 deg
+Resolution: 1920x1080
+Calibration plane z: 0.45 m (bench surface, where feet sit)
+Scenes: 117 (99 single + 18 multi)
+Calibration points in frame: 20
+
+Camera pitch sweep (downward degrees -> seats in frame of 99):
+    5 deg:  77 seats
+   10 deg:  77 seats
+   15 deg:  77 seats
+   20 deg:  84 seats  <-- chosen
+   25 deg:  84 seats
+   30 deg:  84 seats
+   35 deg:  84 seats
+   40 deg:  84 seats
+   45 deg:  84 seats
+   50 deg:  80 seats
+   55 deg:  53 seats
+   60 deg:  33 seats
+
+Chosen pitch: 20 deg down (84/99 seats in frame)
+
+Seats out of frame are a real limitation of this single fixed camera at its
+documented position - the front rows sit almost directly beneath it. Measured
+here, not assumed: seat_map.json's 'covers all 99 seats' is optimistic.

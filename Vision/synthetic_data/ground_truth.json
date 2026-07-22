@@ -1,0 +1,4853 @@
+{
+  "project": "Guardian AI",
+  "description": "Synthetic vision dataset (projection only - no rendered images)",
+  "images_rendered": false,
+  "camera_calibration": {
+    "camera_id": "CAM_01_Front_Center",
+    "position": {
+      "x": 6.1,
+      "y": 2.6,
+      "z": 2.73
+    },
+    "fov_degrees_horizontal": 110,
+    "pitch_down_degrees": 20,
+    "pitch_selection": "swept 5..60deg / 5deg steps; maximized in-frame seat count",
+    "calibration_plane_z": 0.45,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "correspondences": [
+      {
+        "pixel": [
+          12.945352096701122,
+          705.6721064962901
+        ],
+        "world": [
+          0.5,
+          6.0
+        ]
+      },
+      {
+        "pixel": [
+          405.92212271401456,
+          535.4061262802353
+        ],
+        "world": [
+          0.5,
+          9.0
+        ]
+      },
+      {
+        "pixel": [
+          568.4106523685848,
+          465.0043345100985
+        ],
+        "world": [
+          0.5,
+          12.0
+        ]
+      },
+      {
+        "pixel": [
+          645.3144026057183,
+          431.68406370669413
+        ],
+        "world": [
+          0.5,
+          14.5
+        ]
+      },
+      {
+        "pixel": [
+          435.73760562495966,
+          705.6721064962901
+        ],
+        "world": [
+          3.0,
+          6.0
+        ]
+      },
+      {
+        "pixel": [
+          653.2783179309723,
+          535.4061262802353
+        ],
+        "world": [
+          3.0,
+          9.0
+        ]
+      },
+      {
+        "pixel": [
+          743.2273254183237,
+          465.0043345100985
+        ],
+        "world": [
+          3.0,
+          12.0
+        ]
+      },
+      {
+        "pixel": [
+          785.7990442995941,
+          431.68406370669413
+        ],
+        "world": [
+          3.0,
+          14.5
+        ]
+      },
+      {
+        "pixel": [
+          960.0,
+          705.6721064962901
+        ],
+        "world": [
+          6.1,
+          6.0
+        ]
+      },
+      {
+        "pixel": [
+          960.0,
+          535.4061262802353
+        ],
+        "world": [
+          6.1,
+          9.0
+        ]
+      },
+      {
+        "pixel": [
+          960.0,
+          465.0043345100985
+        ],
+        "world": [
+          6.1,
+          12.0
+        ]
+      },
+      {
+        "pixel": [
+          960.0,
+          431.68406370669413
+        ],
+        "world": [
+          6.1,
+          14.5
+        ]
+      },
+      {
+        "pixel": [
+          1484.2623943750405,
+          705.6721064962901
+        ],
+        "world": [
+          9.2,
+          6.0
+        ]
+      },
+      {
+        "pixel": [
+          1266.7216820690276,
+          535.4061262802353
+        ],
+        "world": [
+          9.2,
+          9.0
+        ]
+      },
+      {
+        "pixel": [
+          1176.7726745816763,
+          465.0043345100985
+        ],
+        "world": [
+          9.2,
+          12.0
+        ]
+      },
+      {
+        "pixel": [
+          1134.200955700406,
+          431.68406370669413
+        ],
+        "world": [
+          9.2,
+          14.5
+        ]
+      },
+      {
+        "pixel": [
+          1907.054647903299,
+          705.6721064962901
+        ],
+        "world": [
+          11.7,
+          6.0
+        ]
+      },
+      {
+        "pixel": [
+          1514.0778772859853,
+          535.4061262802353
+        ],
+        "world": [
+          11.7,
+          9.0
+        ]
+      },
+      {
+        "pixel": [
+          1351.5893476314152,
+          465.0043345100985
+        ],
+        "world": [
+          11.7,
+          12.0
+        ]
+      },
+      {
+        "pixel": [
+          1274.6855973942816,
+          431.68406370669413
+        ],
+        "world": [
+          11.7,
+          14.5
+        ]
+      }
+    ]
+  },
+  "seat_visibility": {
+    "R01-L01": {
+      "in_frame": false
+    },
+    "R01-L02": {
+      "in_frame": false
+    },
+    "R01-C01": {
+      "in_frame": false
+    },
+    "R01-C02": {
+      "in_frame": false
+    },
+    "R01-C03": {
+      "in_frame": false
+    },
+    "R01-C04": {
+      "in_frame": false
+    },
+    "R01-C05": {
+      "in_frame": false
+    },
+    "R01-R01": {
+      "in_frame": false
+    },
+    "R01-R02": {
+      "in_frame": false
+    },
+    "R02-L01": {
+      "in_frame": false
+    },
+    "R02-L02": {
+      "in_frame": false
+    },
+    "R02-C01": {
+      "in_frame": true
+    },
+    "R02-C02": {
+      "in_frame": true
+    },
+    "R02-C03": {
+      "in_frame": true
+    },
+    "R02-C04": {
+      "in_frame": true
+    },
+    "R02-C05": {
+      "in_frame": true
+    },
+    "R02-R01": {
+      "in_frame": false
+    },
+    "R02-R02": {
+      "in_frame": false
+    },
+    "R03-L01": {
+      "in_frame": false
+    },
+    "R03-L02": {
+      "in_frame": true
+    },
+    "R03-C01": {
+      "in_frame": true
+    },
+    "R03-C02": {
+      "in_frame": true
+    },
+    "R03-C03": {
+      "in_frame": true
+    },
+    "R03-C04": {
+      "in_frame": true
+    },
+    "R03-C05": {
+      "in_frame": true
+    },
+    "R03-R01": {
+      "in_frame": true
+    },
+    "R03-R02": {
+      "in_frame": false
+    },
+    "R04-L01": {
+      "in_frame": true
+    },
+    "R04-L02": {
+      "in_frame": true
+    },
+    "R04-C01": {
+      "in_frame": true
+    },
+    "R04-C02": {
+      "in_frame": true
+    },
+    "R04-C03": {
+      "in_frame": true
+    },
+    "R04-C04": {
+      "in_frame": true
+    },
+    "R04-C05": {
+      "in_frame": true
+    },
+    "R04-R01": {
+      "in_frame": true
+    },
+    "R04-R02": {
+      "in_frame": true
+    },
+    "R05-L01": {
+      "in_frame": true
+    },
+    "R05-L02": {
+      "in_frame": true
+    },
+    "R05-C01": {
+      "in_frame": true
+    },
+    "R05-C02": {
+      "in_frame": true
+    },
+    "R05-C03": {
+      "in_frame": true
+    },
+    "R05-C04": {
+      "in_frame": true
+    },
+    "R05-C05": {
+      "in_frame": true
+    },
+    "R05-R01": {
+      "in_frame": true
+    },
+    "R05-R02": {
+      "in_frame": true
+    },
+    "R06-L01": {
+      "in_frame": true
+    },
+    "R06-L02": {
+      "in_frame": true
+    },
+    "R06-C01": {
+      "in_frame": true
+    },
+    "R06-C02": {
+      "in_frame": true
+    },
+    "R06-C03": {
+      "in_frame": true
+    },
+    "R06-C04": {
+      "in_frame": true
+    },
+    "R06-C05": {
+      "in_frame": true
+    },
+    "R06-R01": {
+      "in_frame": true
+    },
+    "R06-R02": {
+      "in_frame": true
+    },
+    "R07-L01": {
+      "in_frame": true
+    },
+    "R07-L02": {
+      "in_frame": true
+    },
+    "R07-C01": {
+      "in_frame": true
+    },
+    "R07-C02": {
+      "in_frame": true
+    },
+    "R07-C03": {
+      "in_frame": true
+    },
+    "R07-C04": {
+      "in_frame": true
+    },
+    "R07-C05": {
+      "in_frame": true
+    },
+    "R07-R01": {
+      "in_frame": true
+    },
+    "R07-R02": {
+      "in_frame": true
+    },
+    "R08-L01": {
+      "in_frame": true
+    },
+    "R08-L02": {
+      "in_frame": true
+    },
+    "R08-C01": {
+      "in_frame": true
+    },
+    "R08-C02": {
+      "in_frame": true
+    },
+    "R08-C03": {
+      "in_frame": true
+    },
+    "R08-C04": {
+      "in_frame": true
+    },
+    "R08-C05": {
+      "in_frame": true
+    },
+    "R08-R01": {
+      "in_frame": true
+    },
+    "R08-R02": {
+      "in_frame": true
+    },
+    "R09-L01": {
+      "in_frame": true
+    },
+    "R09-L02": {
+      "in_frame": true
+    },
+    "R09-C01": {
+      "in_frame": true
+    },
+    "R09-C02": {
+      "in_frame": true
+    },
+    "R09-C03": {
+      "in_frame": true
+    },
+    "R09-C04": {
+      "in_frame": true
+    },
+    "R09-C05": {
+      "in_frame": true
+    },
+    "R09-R01": {
+      "in_frame": true
+    },
+    "R09-R02": {
+      "in_frame": true
+    },
+    "R10-L01": {
+      "in_frame": true
+    },
+    "R10-L02": {
+      "in_frame": true
+    },
+    "R10-C01": {
+      "in_frame": true
+    },
+    "R10-C02": {
+      "in_frame": true
+    },
+    "R10-C03": {
+      "in_frame": true
+    },
+    "R10-C04": {
+      "in_frame": true
+    },
+    "R10-C05": {
+      "in_frame": true
+    },
+    "R10-R01": {
+      "in_frame": true
+    },
+    "R10-R02": {
+      "in_frame": true
+    },
+    "R11-L01": {
+      "in_frame": true
+    },
+    "R11-L02": {
+      "in_frame": true
+    },
+    "R11-C01": {
+      "in_frame": true
+    },
+    "R11-C02": {
+      "in_frame": true
+    },
+    "R11-C03": {
+      "in_frame": true
+    },
+    "R11-C04": {
+      "in_frame": true
+    },
+    "R11-C05": {
+      "in_frame": true
+    },
+    "R11-R01": {
+      "in_frame": true
+    },
+    "R11-R02": {
+      "in_frame": true
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "single_R01-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-L01",
+          "true_x": 0.53,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            1559.0722329260866,
+            -2292.4937428476633,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-L02",
+          "true_x": 1.59,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            1559.0722329260866,
+            -1655.2214013654968,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-C01",
+          "true_x": 3.772,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            1559.0722329260866,
+            -343.40229842767724,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-C02",
+          "true_x": 4.946,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            1559.0722329260866,
+            362.40687977993036,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-C03",
+          "true_x": 6.12,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            790.1418448923347,
+            1559.0722329260866,
+            1178.3890565669994,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-C04",
+          "true_x": 7.294,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1581.641133106189,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-C05",
+          "true_x": 8.468,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            2287.4503113137966,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-R01",
+          "true_x": 10.65,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            3599.2694142516166,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R01-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-R02",
+          "true_x": 11.71,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            4236.541755733784,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-L01",
+          "true_x": 0.53,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            -659.3414504180591,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-L02",
+          "true_x": 1.59,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            -342.058282683652,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-C01",
+          "true_x": 3.772,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            311.0661248601936,
+            1080.0
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-C02",
+          "true_x": 4.946,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            434.7660465977974,
+            840.2237064282864,
+            662.4721993132069,
+            1080.0
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-C03",
+          "true_x": 6.12,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            904.0390003985477,
+            840.2237064282864,
+            1031.949856630439,
+            1080.0
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-C04",
+          "true_x": 7.294,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1269.5007504126197,
+            840.2237064282864,
+            1501.222810431189,
+            1080.0
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-C05",
+          "true_x": 8.468,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1620.906824865633,
+            840.2237064282864,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-R01",
+          "true_x": 10.65,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            2274.031232409479,
+            840.2237064282864,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R02-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-R02",
+          "true_x": 11.71,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            2591.3144001438864,
+            840.2237064282864,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-L01",
+          "true_x": 0.53,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            642.6584292645992,
+            -118.03510466956944,
+            826.1421764507347
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-L02",
+          "true_x": 1.59,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            642.6584292645992,
+            93.18803968343286,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-C01",
+          "true_x": 3.772,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            364.680363042828,
+            642.6584292645992,
+            527.9888896629155,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-C02",
+          "true_x": 4.946,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            645.5908348224582,
+            642.6584292645992,
+            761.9284853897316,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-C03",
+          "true_x": 6.12,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            926.5013066020884,
+            642.6584292645992,
+            1003.069748654458,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-C04",
+          "true_x": 7.294,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1166.0421993028347,
+            642.6584292645992,
+            1283.980220434088,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-C05",
+          "true_x": 8.468,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1399.9817950296506,
+            642.6584292645992,
+            1564.8906922137185,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-R01",
+          "true_x": 10.65,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1834.7826450091334,
+            642.6584292645992,
+            1920.0,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R03-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-R02",
+          "true_x": 11.71,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            2046.0057893621363,
+            642.6584292645992,
+            1920.0,
+            826.1421764507347
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-L01",
+          "true_x": 0.53,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            550.237108385724,
+            152.04465758164628,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-L02",
+          "true_x": 1.59,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            162.6352527130357,
+            550.237108385724,
+            310.3501405693458,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-C01",
+          "true_x": 3.772,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            535.194113222705,
+            550.237108385724,
+            636.2204838515729,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-C02",
+          "true_x": 4.946,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            735.6451224978434,
+            550.237108385724,
+            811.5512735002137,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-C03",
+          "true_x": 6.12,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            936.0961317729818,
+            550.237108385724,
+            990.7335448633092,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-C04",
+          "true_x": 7.294,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1114.4225183106428,
+            550.237108385724,
+            1191.1845541384475,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-C05",
+          "true_x": 8.468,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1289.7533079592838,
+            550.237108385724,
+            1391.635563413586,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-R01",
+          "true_x": 10.65,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1615.623651241511,
+            550.237108385724,
+            1764.1944239232555,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R04-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-R02",
+          "true_x": 11.71,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1773.9291342292106,
+            550.237108385724,
+            1920.0,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-L01",
+          "true_x": 0.53,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            199.47992086187114,
+            496.6646319557962,
+            313.9094898331927,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-L02",
+          "true_x": 1.59,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            340.1694992015599,
+            496.6646319557962,
+            440.500236742031,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-C01",
+          "true_x": 3.772,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            629.7776689536362,
+            496.6646319557962,
+            701.0860950015456,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-C02",
+          "true_x": 4.946,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            785.5980132657065,
+            496.6646319557962,
+            841.2913184647308,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-C03",
+          "true_x": 6.12,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            941.418357577777,
+            496.6646319557962,
+            983.890683114287,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-C04",
+          "true_x": 7.294,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1083.4856908525837,
+            496.6646319557962,
+            1139.711027426357,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-C05",
+          "true_x": 8.468,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1223.690914315769,
+            496.6646319557962,
+            1295.5313717384277,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-R01",
+          "true_x": 10.65,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1484.2767725752835,
+            496.6646319557962,
+            1585.1395414905041,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R05-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R05-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R05-R02",
+          "true_x": 11.71,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1610.867519484122,
+            496.6646319557962,
+            1725.8291198301927,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-L01",
+          "true_x": 0.53,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            337.974636777307,
+            461.7001842788986,
+            421.74322517805933,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-L02",
+          "true_x": 1.59,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            453.04390117801466,
+            461.7001842788986,
+            527.2057355867944,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-C01",
+          "true_x": 3.772,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            689.912896387773,
+            461.7001842788986,
+            744.2993183338323,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-C02",
+          "true_x": 4.946,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            817.3575345070474,
+            461.7001842788986,
+            861.1040232582238,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-C03",
+          "true_x": 6.12,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            944.8021726263217,
+            461.7001842788986,
+            979.540063766158,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-C04",
+          "true_x": 7.294,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1062.8756941156905,
+            461.7001842788986,
+            1106.9847018854323,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-C05",
+          "true_x": 8.468,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1179.6803990400824,
+            461.7001842788986,
+            1234.4293400047065,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-R01",
+          "true_x": 10.65,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1396.7739817871202,
+            461.7001842788986,
+            1471.2983352144652,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R06-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-R02",
+          "true_x": 11.71,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1502.2364921958556,
+            461.7001842788986,
+            1586.3675996151728,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-L01",
+          "true_x": 0.53,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            433.7986726504762,
+            437.08331547227203,
+            498.73005634746727,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-L02",
+          "true_x": 1.59,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            531.1413265755189,
+            437.08331547227203,
+            589.1082708154313,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-C01",
+          "true_x": 3.772,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            731.5202613532958,
+            437.08331547227203,
+            775.1509726730701,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-C02",
+          "true_x": 4.946,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            839.3318422098997,
+            437.08331547227203,
+            875.2491083196641,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-C03",
+          "true_x": 6.12,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            947.1434230665038,
+            437.08331547227203,
+            976.5298846287809,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-C04",
+          "true_x": 7.294,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1048.1613903395044,
+            437.08331547227203,
+            1084.3414654853848,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-C05",
+          "true_x": 8.468,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1148.2595259860984,
+            437.08331547227203,
+            1192.153046341989,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-R01",
+          "true_x": 10.65,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1334.3022278437372,
+            437.08331547227203,
+            1392.5319811197658,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R07-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-R02",
+          "true_x": 11.71,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1424.6804423117012,
+            437.08331547227203,
+            1489.8746350448084,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-L01",
+          "true_x": 0.53,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            504.0400560547917,
+            418.8126394693976,
+            556.4498130904561,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-L02",
+          "true_x": 1.59,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            588.388666976593,
+            418.8126394693976,
+            635.5187961078527,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-C01",
+          "true_x": 3.772,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            762.0194868175082,
+            418.8126394693976,
+            798.2815517153621,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-C02",
+          "true_x": 4.946,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            855.4395521214653,
+            418.8126394693976,
+            885.8541800761393,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-C03",
+          "true_x": 6.12,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            948.8596174254225,
+            418.8126394693976,
+            974.3233490244568,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-C04",
+          "true_x": 7.294,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1037.1295551320643,
+            418.8126394693976,
+            1067.743414328414,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-C05",
+          "true_x": 8.468,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1124.7021834928414,
+            418.8126394693976,
+            1161.163479632371,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-R01",
+          "true_x": 10.65,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1287.4649391003509,
+            418.8126394693976,
+            1334.7942994732864,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R08-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-R02",
+          "true_x": 11.71,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1366.5339221177478,
+            418.8126394693976,
+            1419.1429103950877,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-L01",
+          "true_x": 0.53,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            557.7371784476309,
+            404.71430523446645,
+            601.3308937829152,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-L02",
+          "true_x": 1.59,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            632.1522902880342,
+            404.71430523446645,
+            671.6061715260039,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-C01",
+          "true_x": 3.772,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            785.3350959821475,
+            404.71430523446645,
+            816.2671677858336,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-C02",
+          "true_x": 4.946,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            867.7533424921793,
+            404.71430523446645,
+            894.1003527578961,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-C03",
+          "true_x": 6.12,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            950.1715890022109,
+            404.71430523446645,
+            972.636528425729,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-C04",
+          "true_x": 7.294,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1028.551544515428,
+            404.71430523446645,
+            1055.0547749357606,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-C05",
+          "true_x": 8.468,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1106.3847294874906,
+            404.71430523446645,
+            1137.4730214457923,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-R01",
+          "true_x": 10.65,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1251.0457257473201,
+            404.71430523446645,
+            1290.6558271399056,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R09-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-R02",
+          "true_x": 11.71,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1321.3210034904089,
+            404.71430523446645,
+            1365.070938980309,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-L01",
+          "true_x": 0.53,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            600.1193161430575,
+            393.50556726725785,
+            637.2281611258074,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-L02",
+          "true_x": 1.59,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            666.6941023364884,
+            393.50556726725785,
+            700.4699631972758,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-C01",
+          "true_x": 3.772,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            803.7376716516453,
+            393.50556726725785,
+            830.6526161406193,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-C02",
+          "true_x": 4.946,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            877.4723876809734,
+            393.50556726725785,
+            900.6958950386419,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-C03",
+          "true_x": 6.12,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            951.2071037103016,
+            393.50556726725785,
+            971.3051523724696,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-C04",
+          "true_x": 7.294,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1021.6905880583945,
+            393.50556726725785,
+            1045.0398684017975,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-C05",
+          "true_x": 8.468,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1091.7338669564174,
+            393.50556726725785,
+            1118.774584431126,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-R01",
+          "true_x": 10.65,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1221.9165198997607,
+            393.50556726725785,
+            1255.8181537462826,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R10-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-R02",
+          "true_x": 11.71,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1285.1583219712293,
+            393.50556726725785,
+            1322.3929399397136,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-L01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-L01",
+          "true_x": 0.53,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            634.4219937736596,
+            384.3806259651897,
+            666.5936310878913,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-L02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-L02",
+          "true_x": 1.59,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            694.6510839307138,
+            384.3806259651897,
+            724.0817551261232,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-C01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C01",
+          "true_x": 3.772,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            818.6320978200462,
+            384.3806259651897,
+            842.4205161180311,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-C02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C02",
+          "true_x": 4.946,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            885.3386561638026,
+            384.3806259651897,
+            906.0913251943371,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-C03",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C03",
+          "true_x": 6.12,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            952.0452145075589,
+            384.3806259651897,
+            970.2275813474243,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-C04",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C04",
+          "true_x": 7.294,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1016.078037976917,
+            384.3806259651897,
+            1036.9341396911807,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-C05",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C05",
+          "true_x": 8.468,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1079.748847053223,
+            384.3806259651897,
+            1103.640698034937,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-R01",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-R01",
+          "true_x": 10.65,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1198.0876080451308,
+            384.3806259651897,
+            1227.6217119242697,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "single_R11-R02",
+      "type": "single",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-R02",
+          "true_x": 11.71,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1255.5757320833632,
+            384.3806259651897,
+            1287.8508020813238,
+            430.2008888705897
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_01",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R01-C02",
+        "R11-C03",
+        "R04-R02",
+        "R04-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R01-C02",
+          "true_x": 4.946,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            1559.0722329260866,
+            362.40687977993036,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R11-C03",
+          "true_x": 6.12,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            952.0452145075589,
+            384.3806259651897,
+            970.2275813474243,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-R02",
+          "true_x": 11.71,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1773.9291342292106,
+            550.237108385724,
+            1920.0,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-C03",
+          "true_x": 6.12,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            936.0961317729818,
+            550.237108385724,
+            990.7335448633092,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_02",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R02-R02",
+        "R11-C03",
+        "R02-C03",
+        "R10-C04",
+        "R08-C05",
+        "R02-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R02-R02",
+          "true_x": 11.71,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            2591.3144001438864,
+            840.2237064282864,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R11-C03",
+          "true_x": 6.12,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            952.0452145075589,
+            384.3806259651897,
+            970.2275813474243,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-C03",
+          "true_x": 6.12,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            904.0390003985477,
+            840.2237064282864,
+            1031.949856630439,
+            1080.0
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-C04",
+          "true_x": 7.294,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1021.6905880583945,
+            393.50556726725785,
+            1045.0398684017975,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-C05",
+          "true_x": 8.468,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1124.7021834928414,
+            418.8126394693976,
+            1161.163479632371,
+            482.57508449354026
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-C01",
+          "true_x": 3.772,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            311.0661248601936,
+            1080.0
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_03",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R07-L01",
+        "R01-C03",
+        "R01-C02",
+        "R02-C01",
+        "R04-L01",
+        "R04-C01",
+        "R08-L02",
+        "R09-C04",
+        "R08-R02",
+        "R03-R01",
+        "R11-L02",
+        "R10-C01"
+      ],
+      "people": [
+        {
+          "seat_id": "R07-L01",
+          "true_x": 0.53,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            433.7986726504762,
+            437.08331547227203,
+            498.73005634746727,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R01-C03",
+          "true_x": 6.12,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            790.1418448923347,
+            1559.0722329260866,
+            1178.3890565669994,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R01-C02",
+          "true_x": 4.946,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            1559.0722329260866,
+            362.40687977993036,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R02-C01",
+          "true_x": 3.772,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            311.0661248601936,
+            1080.0
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-L01",
+          "true_x": 0.53,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            550.237108385724,
+            152.04465758164628,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-C01",
+          "true_x": 3.772,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            535.194113222705,
+            550.237108385724,
+            636.2204838515729,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-L02",
+          "true_x": 1.59,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            588.388666976593,
+            418.8126394693976,
+            635.5187961078527,
+            482.57508449354026
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-C04",
+          "true_x": 7.294,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1028.551544515428,
+            404.71430523446645,
+            1055.0547749357606,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-R02",
+          "true_x": 11.71,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1366.5339221177478,
+            418.8126394693976,
+            1419.1429103950877,
+            482.57508449354026
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-R01",
+          "true_x": 10.65,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1834.7826450091334,
+            642.6584292645992,
+            1920.0,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R11-L02",
+          "true_x": 1.59,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            694.6510839307138,
+            384.3806259651897,
+            724.0817551261232,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-C01",
+          "true_x": 3.772,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            803.7376716516453,
+            393.50556726725785,
+            830.6526161406193,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_04",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-R02",
+        "R04-L02",
+        "R07-C02",
+        "R09-C02",
+        "R04-R02",
+        "R01-L01",
+        "R11-R01",
+        "R03-C01",
+        "R10-R02",
+        "R07-L01",
+        "R05-R01"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-R02",
+          "true_x": 11.71,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1502.2364921958556,
+            461.7001842788986,
+            1586.3675996151728,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-L02",
+          "true_x": 1.59,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            162.6352527130357,
+            550.237108385724,
+            310.3501405693458,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-C02",
+          "true_x": 4.946,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            839.3318422098997,
+            437.08331547227203,
+            875.2491083196641,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-C02",
+          "true_x": 4.946,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            867.7533424921793,
+            404.71430523446645,
+            894.1003527578961,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-R02",
+          "true_x": 11.71,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1773.9291342292106,
+            550.237108385724,
+            1920.0,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R01-L01",
+          "true_x": 0.53,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            1559.0722329260866,
+            -2292.4937428476633,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R11-R01",
+          "true_x": 10.65,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1198.0876080451308,
+            384.3806259651897,
+            1227.6217119242697,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-C01",
+          "true_x": 3.772,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            364.680363042828,
+            642.6584292645992,
+            527.9888896629155,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-R02",
+          "true_x": 11.71,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1285.1583219712293,
+            393.50556726725785,
+            1322.3929399397136,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-L01",
+          "true_x": 0.53,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            433.7986726504762,
+            437.08331547227203,
+            498.73005634746727,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R05-R01",
+          "true_x": 10.65,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1484.2767725752835,
+            496.6646319557962,
+            1585.1395414905041,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_05",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R03-L02",
+        "R04-L01",
+        "R11-R01",
+        "R05-R01",
+        "R02-C03",
+        "R02-C01",
+        "R06-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R03-L02",
+          "true_x": 1.59,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            642.6584292645992,
+            93.18803968343286,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-L01",
+          "true_x": 0.53,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            550.237108385724,
+            152.04465758164628,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R11-R01",
+          "true_x": 10.65,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1198.0876080451308,
+            384.3806259651897,
+            1227.6217119242697,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R05-R01",
+          "true_x": 10.65,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1484.2767725752835,
+            496.6646319557962,
+            1585.1395414905041,
+            601.4579296481967
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-C03",
+          "true_x": 6.12,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            904.0390003985477,
+            840.2237064282864,
+            1031.949856630439,
+            1080.0
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-C01",
+          "true_x": 3.772,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            311.0661248601936,
+            1080.0
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-C02",
+          "true_x": 4.946,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            817.3575345070474,
+            461.7001842788986,
+            861.1040232582238,
+            547.986308311375
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_06",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-L01",
+        "R05-R02",
+        "R09-C04",
+        "R04-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-L01",
+          "true_x": 0.53,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            337.974636777307,
+            461.7001842788986,
+            421.74322517805933,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R05-R02",
+          "true_x": 11.71,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1610.867519484122,
+            496.6646319557962,
+            1725.8291198301927,
+            601.4579296481967
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-C04",
+          "true_x": 7.294,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1028.551544515428,
+            404.71430523446645,
+            1055.0547749357606,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-C05",
+          "true_x": 8.468,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1289.7533079592838,
+            550.237108385724,
+            1391.635563413586,
+            683.6400960673866
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_07",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C02",
+        "R07-C03",
+        "R08-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C02",
+          "true_x": 4.946,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            885.3386561638026,
+            384.3806259651897,
+            906.0913251943371,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-C03",
+          "true_x": 6.12,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            947.1434230665038,
+            437.08331547227203,
+            976.5298846287809,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-C04",
+          "true_x": 7.294,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1037.1295551320643,
+            418.8126394693976,
+            1067.743414328414,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_08",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-C02",
+        "R02-L02",
+        "R08-R01",
+        "R05-L02"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-C02",
+          "true_x": 4.946,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            817.3575345070474,
+            461.7001842788986,
+            861.1040232582238,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-L02",
+          "true_x": 1.59,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            -342.058282683652,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R08-R01",
+          "true_x": 10.65,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1287.4649391003509,
+            418.8126394693976,
+            1334.7942994732864,
+            482.57508449354026
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R05-L02",
+          "true_x": 1.59,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            340.1694992015599,
+            496.6646319557962,
+            440.500236742031,
+            601.4579296481967
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_09",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-L02",
+        "R09-L02",
+        "R03-C05",
+        "R11-L01",
+        "R01-R02",
+        "R01-C04",
+        "R10-C02",
+        "R04-C01",
+        "R11-R02",
+        "R05-L02",
+        "R02-L02",
+        "R02-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-L02",
+          "true_x": 1.59,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            453.04390117801466,
+            461.7001842788986,
+            527.2057355867944,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-L02",
+          "true_x": 1.59,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            632.1522902880342,
+            404.71430523446645,
+            671.6061715260039,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-C05",
+          "true_x": 8.468,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1399.9817950296506,
+            642.6584292645992,
+            1564.8906922137185,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R11-L01",
+          "true_x": 0.53,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            634.4219937736596,
+            384.3806259651897,
+            666.5936310878913,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R01-R02",
+          "true_x": 11.71,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            4236.541755733784,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R01-C04",
+          "true_x": 7.294,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1581.641133106189,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R10-C02",
+          "true_x": 4.946,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            877.4723876809734,
+            393.50556726725785,
+            900.6958950386419,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-C01",
+          "true_x": 3.772,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            535.194113222705,
+            550.237108385724,
+            636.2204838515729,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R11-R02",
+          "true_x": 11.71,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1255.5757320833632,
+            384.3806259651897,
+            1287.8508020813238,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R05-L02",
+          "true_x": 1.59,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            340.1694992015599,
+            496.6646319557962,
+            440.500236742031,
+            601.4579296481967
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-L02",
+          "true_x": 1.59,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            -342.058282683652,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R02-C02",
+          "true_x": 4.946,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            434.7660465977974,
+            840.2237064282864,
+            662.4721993132069,
+            1080.0
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_10",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R04-R02",
+        "R07-C03",
+        "R10-L01",
+        "R06-L02",
+        "R03-C01",
+        "R06-C01",
+        "R06-L01",
+        "R03-R02",
+        "R10-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R04-R02",
+          "true_x": 11.71,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1773.9291342292106,
+            550.237108385724,
+            1920.0,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-C03",
+          "true_x": 6.12,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            947.1434230665038,
+            437.08331547227203,
+            976.5298846287809,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-L01",
+          "true_x": 0.53,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            600.1193161430575,
+            393.50556726725785,
+            637.2281611258074,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-L02",
+          "true_x": 1.59,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            453.04390117801466,
+            461.7001842788986,
+            527.2057355867944,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-C01",
+          "true_x": 3.772,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            364.680363042828,
+            642.6584292645992,
+            527.9888896629155,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-C01",
+          "true_x": 3.772,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            689.912896387773,
+            461.7001842788986,
+            744.2993183338323,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-L01",
+          "true_x": 0.53,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            337.974636777307,
+            461.7001842788986,
+            421.74322517805933,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-R02",
+          "true_x": 11.71,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            2046.0057893621363,
+            642.6584292645992,
+            1920.0,
+            826.1421764507347
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R10-C03",
+          "true_x": 6.12,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            951.2071037103016,
+            393.50556726725785,
+            971.3051523724696,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_11",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-R02",
+        "R10-C05",
+        "R10-L02",
+        "R02-L01",
+        "R09-C04",
+        "R10-L01",
+        "R03-C02"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-R02",
+          "true_x": 11.71,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1285.1583219712293,
+            393.50556726725785,
+            1322.3929399397136,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-C05",
+          "true_x": 8.468,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1091.7338669564174,
+            393.50556726725785,
+            1118.774584431126,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-L02",
+          "true_x": 1.59,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            666.6941023364884,
+            393.50556726725785,
+            700.4699631972758,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-L01",
+          "true_x": 0.53,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            -659.3414504180591,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R09-C04",
+          "true_x": 7.294,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1028.551544515428,
+            404.71430523446645,
+            1055.0547749357606,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-L01",
+          "true_x": 0.53,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            600.1193161430575,
+            393.50556726725785,
+            637.2281611258074,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-C02",
+          "true_x": 4.946,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            645.5908348224582,
+            642.6584292645992,
+            761.9284853897316,
+            826.1421764507347
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_12",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C02",
+        "R04-C03",
+        "R03-C01",
+        "R07-C04",
+        "R06-C02",
+        "R04-R01",
+        "R10-L01",
+        "R10-R01",
+        "R08-R02",
+        "R04-L02",
+        "R10-C05"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C02",
+          "true_x": 4.946,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            885.3386561638026,
+            384.3806259651897,
+            906.0913251943371,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-C03",
+          "true_x": 6.12,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            936.0961317729818,
+            550.237108385724,
+            990.7335448633092,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-C01",
+          "true_x": 3.772,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            364.680363042828,
+            642.6584292645992,
+            527.9888896629155,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-C04",
+          "true_x": 7.294,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1048.1613903395044,
+            437.08331547227203,
+            1084.3414654853848,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-C02",
+          "true_x": 4.946,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            817.3575345070474,
+            461.7001842788986,
+            861.1040232582238,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-R01",
+          "true_x": 10.65,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1615.623651241511,
+            550.237108385724,
+            1764.1944239232555,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-L01",
+          "true_x": 0.53,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            600.1193161430575,
+            393.50556726725785,
+            637.2281611258074,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-R01",
+          "true_x": 10.65,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1221.9165198997607,
+            393.50556726725785,
+            1255.8181537462826,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-R02",
+          "true_x": 11.71,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1366.5339221177478,
+            418.8126394693976,
+            1419.1429103950877,
+            482.57508449354026
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-L02",
+          "true_x": 1.59,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            162.6352527130357,
+            550.237108385724,
+            310.3501405693458,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-C05",
+          "true_x": 8.468,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1091.7338669564174,
+            393.50556726725785,
+            1118.774584431126,
+            444.068560985269
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_13",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-R02",
+        "R01-R01",
+        "R04-C01",
+        "R01-C03",
+        "R05-C03",
+        "R06-C05",
+        "R04-R01",
+        "R01-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-R02",
+          "true_x": 11.71,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1255.5757320833632,
+            384.3806259651897,
+            1287.8508020813238,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R01-R01",
+          "true_x": 10.65,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            3599.2694142516166,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R04-C01",
+          "true_x": 3.772,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            535.194113222705,
+            550.237108385724,
+            636.2204838515729,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R01-C03",
+          "true_x": 6.12,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            790.1418448923347,
+            1559.0722329260866,
+            1178.3890565669994,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R05-C03",
+          "true_x": 6.12,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            941.418357577777,
+            496.6646319557962,
+            983.890683114287,
+            601.4579296481967
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-C05",
+          "true_x": 8.468,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1179.6803990400824,
+            461.7001842788986,
+            1234.4293400047065,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-R01",
+          "true_x": 10.65,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1615.623651241511,
+            550.237108385724,
+            1764.1944239232555,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R01-R02",
+          "true_x": 11.71,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            4236.541755733784,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_14",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R09-L01",
+        "R11-L02",
+        "R05-C03",
+        "R04-L01",
+        "R10-C01",
+        "R08-L01"
+      ],
+      "people": [
+        {
+          "seat_id": "R09-L01",
+          "true_x": 0.53,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            557.7371784476309,
+            404.71430523446645,
+            601.3308937829152,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R11-L02",
+          "true_x": 1.59,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            694.6510839307138,
+            384.3806259651897,
+            724.0817551261232,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R05-C03",
+          "true_x": 6.12,
+          "true_y": 7.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            941.418357577777,
+            496.6646319557962,
+            983.890683114287,
+            601.4579296481967
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-L01",
+          "true_x": 0.53,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            550.237108385724,
+            152.04465758164628,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-C01",
+          "true_x": 3.772,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            803.7376716516453,
+            393.50556726725785,
+            830.6526161406193,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-L01",
+          "true_x": 0.53,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            504.0400560547917,
+            418.8126394693976,
+            556.4498130904561,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_15",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R10-L02",
+        "R07-C03",
+        "R03-L01",
+        "R04-C05",
+        "R02-R02",
+        "R04-C03",
+        "R11-C04",
+        "R08-R02",
+        "R08-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R10-L02",
+          "true_x": 1.59,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            666.6941023364884,
+            393.50556726725785,
+            700.4699631972758,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-C03",
+          "true_x": 6.12,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            947.1434230665038,
+            437.08331547227203,
+            976.5298846287809,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-L01",
+          "true_x": 0.53,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            642.6584292645992,
+            -118.03510466956944,
+            826.1421764507347
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R04-C05",
+          "true_x": 8.468,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1289.7533079592838,
+            550.237108385724,
+            1391.635563413586,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-R02",
+          "true_x": 11.71,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            2591.3144001438864,
+            840.2237064282864,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R04-C03",
+          "true_x": 6.12,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            936.0961317729818,
+            550.237108385724,
+            990.7335448633092,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R11-C04",
+          "true_x": 7.294,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1016.078037976917,
+            384.3806259651897,
+            1036.9341396911807,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-R02",
+          "true_x": 11.71,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1366.5339221177478,
+            418.8126394693976,
+            1419.1429103950877,
+            482.57508449354026
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R08-C04",
+          "true_x": 7.294,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            1037.1295551320643,
+            418.8126394693976,
+            1067.743414328414,
+            482.57508449354026
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_16",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R11-C04",
+        "R09-C01",
+        "R07-L01",
+        "R06-C05",
+        "R06-L02",
+        "R04-L02",
+        "R02-R02"
+      ],
+      "people": [
+        {
+          "seat_id": "R11-C04",
+          "true_x": 7.294,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1016.078037976917,
+            384.3806259651897,
+            1036.9341396911807,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-C01",
+          "true_x": 3.772,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            785.3350959821475,
+            404.71430523446645,
+            816.2671677858336,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-L01",
+          "true_x": 0.53,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            433.7986726504762,
+            437.08331547227203,
+            498.73005634746727,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-C05",
+          "true_x": 8.468,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1179.6803990400824,
+            461.7001842788986,
+            1234.4293400047065,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-L02",
+          "true_x": 1.59,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            453.04390117801466,
+            461.7001842788986,
+            527.2057355867944,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R04-L02",
+          "true_x": 1.59,
+          "true_y": 6.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            162.6352527130357,
+            550.237108385724,
+            310.3501405693458,
+            683.6400960673866
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-R02",
+          "true_x": 11.71,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            2591.3144001438864,
+            840.2237064282864,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_17",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R08-L01",
+        "R02-C01",
+        "R11-C05",
+        "R01-C05",
+        "R02-C04",
+        "R03-L02",
+        "R09-R02",
+        "R03-C01",
+        "R10-C05",
+        "R07-L01",
+        "R09-C03"
+      ],
+      "people": [
+        {
+          "seat_id": "R08-L01",
+          "true_x": 0.53,
+          "true_y": 11.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            504.0400560547917,
+            418.8126394693976,
+            556.4498130904561,
+            482.57508449354026
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R02-C01",
+          "true_x": 3.772,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            840.2237064282864,
+            311.0661248601936,
+            1080.0
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R11-C05",
+          "true_x": 8.468,
+          "true_y": 14.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            1079.748847053223,
+            384.3806259651897,
+            1103.640698034937,
+            430.2008888705897
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R01-C05",
+          "true_x": 8.468,
+          "true_y": 2.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            2287.4503113137966,
+            1559.0722329260866,
+            1920.0,
+            1080.0
+          ],
+          "in_frame": false
+        },
+        {
+          "seat_id": "R02-C04",
+          "true_x": 7.294,
+          "true_y": 4.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1269.5007504126197,
+            840.2237064282864,
+            1501.222810431189,
+            1080.0
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-L02",
+          "true_x": 1.59,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            0.0,
+            642.6584292645992,
+            93.18803968343286,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-R02",
+          "true_x": 11.71,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            1321.3210034904089,
+            404.71430523446645,
+            1365.070938980309,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R03-C01",
+          "true_x": 3.772,
+          "true_y": 5.2,
+          "true_z": 0.45,
+          "bbox_px": [
+            364.680363042828,
+            642.6584292645992,
+            527.9888896629155,
+            826.1421764507347
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R10-C05",
+          "true_x": 8.468,
+          "true_y": 13.6,
+          "true_z": 0.45,
+          "bbox_px": [
+            1091.7338669564174,
+            393.50556726725785,
+            1118.774584431126,
+            444.068560985269
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-L01",
+          "true_x": 0.53,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            433.7986726504762,
+            437.08331547227203,
+            498.73005634746727,
+            510.41731927504674
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-C03",
+          "true_x": 6.12,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            950.1715890022109,
+            404.71430523446645,
+            972.636528425729,
+            461.11511400952156
+          ],
+          "in_frame": true
+        }
+      ]
+    },
+    {
+      "scene_id": "multi_18",
+      "type": "multi",
+      "image_path": null,
+      "occupied_seats": [
+        "R06-C03",
+        "R06-C02",
+        "R09-C03",
+        "R07-C04"
+      ],
+      "people": [
+        {
+          "seat_id": "R06-C03",
+          "true_x": 6.12,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            944.8021726263217,
+            461.7001842788986,
+            979.540063766158,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R06-C02",
+          "true_x": 4.946,
+          "true_y": 8.8,
+          "true_z": 0.45,
+          "bbox_px": [
+            817.3575345070474,
+            461.7001842788986,
+            861.1040232582238,
+            547.986308311375
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R09-C03",
+          "true_x": 6.12,
+          "true_y": 12.4,
+          "true_z": 0.45,
+          "bbox_px": [
+            950.1715890022109,
+            404.71430523446645,
+            972.636528425729,
+            461.11511400952156
+          ],
+          "in_frame": true
+        },
+        {
+          "seat_id": "R07-C04",
+          "true_x": 7.294,
+          "true_y": 10.0,
+          "true_z": 0.45,
+          "bbox_px": [
+            1048.1613903395044,
+            437.08331547227203,
+            1084.3414654853848,
+            510.41731927504674
+          ],
+          "in_frame": true
+        }
+      ]
+    }
+  ]
+}
