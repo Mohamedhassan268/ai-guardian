@@ -1,0 +1,7 @@
+# core.autocrlf is enabled on Windows checkouts, which rewrites LF bytes inside any file
+# git guesses is text. Mark binary artefacts explicitly so their contents are never
+# altered -- a PDF or model pickle mangled this way is silently corrupted.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.pkl binary
