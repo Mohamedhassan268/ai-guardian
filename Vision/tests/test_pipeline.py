@@ -6,7 +6,7 @@ import pytest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from perception.homography import compute_homography
-from perception.pipeline import process_frame
+from perception.pipeline import foot_point, process_frame
 
 SEATS = [
     {"seat_id": "R01-L01", "x": 5.0, "y": 20.0},
@@ -28,6 +28,10 @@ def _identity_homography():
     mapping can be checked without depending on a real calibration."""
     corners = [(0, 0), (100, 0), (0, 100), (100, 100)]
     return compute_homography(corners, corners)
+
+
+def test_foot_point_is_bottom_center_of_bbox():
+    assert foot_point((0, 0, 10, 20)) == (5, 20)
 
 
 def test_process_frame_produces_correctly_seated_events():

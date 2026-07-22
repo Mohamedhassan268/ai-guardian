@@ -42,23 +42,52 @@ and `ROADMAP.md` for deferred/out-of-scope ideas.
   the COCO "person" class. Not trained or fine-tuned on any exam-hall-specific
   data — this is an off-the-shelf detector, unlike the AI/localization model,
   which is trained on Guardian AI's own simulated RSSI data.
-- 17 pytest tests pass, but they validate the pipeline's *logic* (homography
-  math, seat-mapping, event-schema shape, detection filtering) against
-  synthetic coordinates — not real detection accuracy.
-- **Blocked, same shape as RF's hardware blocker**: unlike RF, Digital Twin
-  never produced synthetic *visual* data (no rendered frames, no images) —
-  only JSON specs (seat map, camera position). There is currently no real or
-  rendered camera frame anywhere in this repo, so no detection/seat-accuracy
-  metrics exist yet, and none can be computed until one exists.
-- Next steps once visual data (real or rendered) is available:
-  1. Real camera calibration — capture pixel↔world point correspondences to
-     fit a real homography (`compute_homography`), replacing the synthetic
-     points used in tests.
-  2. Run the pretrained YOLOv8 detector against real/rendered frames and
-     measure actual detection + vision seat accuracy against the `CLAUDE.md`
-     targets below.
-  3. `ByteTrack` multi-frame tracking (named in `CLAUDE.md`'s Vision stack,
-     not yet in scope — meaningless without a live frame stream).
+- 30 pytest tests pass, validating pipeline *logic* (homography math,
+  seat-mapping, event-schema shape, detection filtering) against synthetic
+  coordinates.
+
+### Synthetic dataset + geometry results
+
+`DigitalTwin/scripts/project_vision_dataset.py` generates a synthetic dataset
+without Blender (pure pinhole projection): per-seat visibility, ground-truth
+pixel bounding boxes, and camera calibration correspondences.
+`render_vision_dataset.py` is the Blender twin that additionally renders PNGs,
+for whoever has Blender when real imagery is needed.
+
+Measured by `python Vision/perception/train.py` (full package in
+`Vision/perception/results/`):
+
+| Metric | Result |
+|---|---|
+| Frame coverage | 84/99 seats (84.8%) |
+| Correct seat (geometry only) | 100.0% over 201 people |
+| Median position error | 0.160 m |
+| Single / multi occupancy | 100% / 100% |
+
+**Read these carefully — they are geometry-only.** They measure the
+homography -> seat-mapping chain given *perfect* ground-truth pixel input. They
+include **no detection error**, so they are NOT the `>90% vision seat accuracy`
+target below. The 0.160 m residual is bounding-box geometry (it equals the
+placeholder's body radius), not calibration drift.
+
+Two real findings, both measured rather than assumed:
+- **15 of 99 seats are a permanent blind spot.** The front rows sit almost
+  directly beneath the ceiling camera. `seat_map.json`'s
+  `"covers": "all 11 rows, all 99 seats"` is optimistic and should be corrected.
+  Fixing it needs a second camera or a moved/re-aimed one — a Digital Twin
+  decision, not a software one. See `results/seat_coverage_map.png`.
+- **The homography must be calibrated on the bench plane (z=0.45), not the
+  floor.** Feet rest on the bench surface; calibrating on the floor pushes every
+  point ~20% of its distance away from the camera (~2.4 m at row 11, i.e. two
+  rows wrong). Both generators now use the bench plane.
+
+- Next steps once real footage exists:
+  1. Calibrate from real pixel<->world correspondences in the actual hall.
+  2. Run the pretrained YOLOv8 detector on real frames — swap
+     `evaluate._GroundTruthDetector` for `detection.PersonDetector` — to get a
+     true end-to-end number comparable to the `CLAUDE.md` target.
+  3. `ByteTrack` multi-frame tracking (in `CLAUDE.md`'s stack, out of scope
+     until there's a live frame stream).
 
 ## Fusion & Platform (Phase 5) — not started
 
@@ -75,7 +104,7 @@ and `ROADMAP.md` for deferred/out-of-scope ideas.
 | Classification rate | >90% | Not yet measured |
 | Localization median error | <2 m | 0.0 m (simulated, 4-corner config) — not yet validated on real hardware |
 | Correct-bench rate | >80% | 100% (simulated) — not yet validated on real hardware |
-| Vision seat accuracy | >90% | Not yet measured — blocked on real/rendered visual data (see Vision AI section) |
+| Vision seat accuracy | >90% | Not yet measured end-to-end. Geometry-only proxy: 100% on synthetic data (no detection error included) — see Vision AI section |
 | Alert latency | <5 s | Not yet measured |
 | False alerts | <1/hr | Not yet measured |
 
