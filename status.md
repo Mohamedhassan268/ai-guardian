@@ -45,41 +45,63 @@ and `ROADMAP.md` for deferred/out-of-scope ideas.
 ## RF Intelligence (Phase 3) — in progress
 
 **Owner:** Person 1
-**Goal:** Capture real RF data with USRP B210 + GNU Radio to validate and
-replace the simulated dataset from Phase 2.
+**Goal:** Capture real RF data at 2.4 GHz to validate and replace the simulated
+dataset from Phase 2.
 
-### Environment
-- OS: Windows 10 64-bit
-- Hardware: USRP B210 (70 MHz – 6 GHz, covers 2.4 GHz natively)
-- Software: GNU Radio, Python 3.x, NumPy, SciPy
+### Hardware status (UPDATED)
+
+The available USRP covers **50 MHz – 2.2 GHz only** — it cannot reach 2.4 GHz.
+This changes the capture strategy for Phase 3:
+
+| Task | Tool | Status |
+|---|---|---|
+| 2.4 GHz RSSI collection (BLE + Wi-Fi) | ESP32 x4 (built-in 2.4 GHz radio) | To order |
+| Wideband spectrum capture below 2.2 GHz | USRP + GNU Radio | Ready |
+| 2.4 GHz IQ capture (optional) | RTL-SDR + upconverter OR HackRF | To decide |
+
+### Revised approach
+
+**Primary 2.4 GHz data collection → ESP32 nodes**
+- ESP32 has native 2.4 GHz radio (BLE + Wi-Fi)
+- Each node reports RSSI of detected devices over serial/WiFi
+- 4 nodes placed at confirmed corner positions
+- No USRP needed for RSSI localization
+
+**USRP → used for sub-2.2 GHz monitoring and signal analysis**
+- Validates energy detection and classification pipeline
+- Used for ISM sub-GHz devices (433 MHz, 868 MHz, 915 MHz)
+- Useful for future protocol expansion (LoRa, ISM remotes)
 
 ### Immediate tasks
-1. Install GNU Radio + UHD drivers for B210 on Windows
-2. Build capture flowgraph: UHD Source → 20 MHz at 2.437 GHz → Waterfall + File Sink
-3. Flash ESP32 as BLE advertising beacon (test transmitter)
-4. Confirm BLE bursts visible at 2402 / 2426 / 2480 MHz in waterfall
-5. Record IQ datasets: quiet room / BLE on / Wi-Fi on
-6. Build Python energy detector (burst → JSON event)
-7. Build rule-based classifier (BLE / Wi-Fi / Unknown)
-8. Deploy 4 ESP32 RSSI nodes at confirmed positions
-9. Collect real RSSI fingerprint data
-10. Compare real vs simulated RSSI — validate Digital Twin accuracy
+
+1. Order 4x ESP32 boards (~$5 each)
+2. Flash ESP32 firmware: BLE + Wi-Fi RSSI scanner
+3. Flash 1x ESP32 as BLE advertising beacon (test transmitter)
+4. Deploy 3 ESP32 RSSI nodes at confirmed corner positions
+5. Collect real RSSI fingerprint data at 20+ seat positions
+6. Compare real vs simulated RSSI — validate Digital Twin accuracy
+7. Build Python energy detector using ESP32 RSSI stream → JSON events
+8. Build rule-based classifier (BLE / Wi-Fi / Unknown)
 
 ### Current blockers
-- GNU Radio not yet installed on Windows
-- ESP32 not yet flashed as BLE beacon
+
+- ESP32 boards not yet ordered
+- USRP cannot reach 2.4 GHz (frequency limitation confirmed)
+- Need decision: buy HackRF/RTL-SDR for IQ capture or rely on ESP32 RSSI only
 
 ### Next milestone
-Hidden BLE beacon in room → detected → localized to correct bench → logged as JSON event
+
+4 ESP32 nodes deployed → real RSSI collected at all 99 seats →
+compared against simulated fingerprint → localization accuracy validated on real hardware.
 
 ### Expected deliverables
 
 | Deliverable | Consumer |
 |---|---|
-| Real IQ recordings (quiet / BLE / Wi-Fi) | RF/data/ |
-| Labeled spectrogram dataset (500+ per class) | Person 2 (AI) — replaces synthetic |
 | Real RSSI fingerprint dataset (20+ positions) | Person 2 (AI) — validates simulation |
-| Energy detector script (burst → JSON event) | Phase 5 fusion engine |
+| ESP32 RSSI scanner firmware | RF/firmware/ |
+| ESP32 BLE beacon firmware | RF/firmware/ |
+| Energy detector script (RSSI stream → JSON event) | Phase 5 fusion engine |
 | Rule-based classifier (BLE / Wi-Fi / Unknown) | Phase 5 fusion engine |
 | Real vs simulated RSSI comparison report | Everyone |
 
@@ -91,6 +113,7 @@ Hidden BLE beacon in room → detected → localized to correct bench → logged
 **Waiting on:** seat_map.json (delivered ✅), YOLOv8 environment setup
 
 ### Next steps
+
 1. Set up YOLOv8 person detection + ByteTrack tracking.
 2. Implement homography: camera pixel position → (x, y) hall coordinate.
 3. Map detected people to seat IDs via `Shared/seat_map.json`.
@@ -112,10 +135,11 @@ Hidden BLE beacon in room → detected → localized to correct bench → logged
 
 | Item | Status | Purpose |
 |---|---|---|
-| USRP B210 | Owned and ready | Main spectrum capture — 2.4 GHz, 20 MHz bandwidth |
-| ESP32 x4 | To order | 3x RSSI scanner nodes + 1x BLE test beacon |
-| IP Camera x1 | To buy (Phase 4) | Vision AI — Hikvision/Dahua 4MP PoE recommended |
-| Laptop (Quadro M1200) | Ready — driver updated to 582.70 | Development machine |
+| USRP (50 MHz – 2.2 GHz) | Owned — cannot reach 2.4 GHz | Sub-2.2 GHz spectrum capture only |
+| ESP32 x4 | To order (~$20 total) | 3x RSSI nodes + 1x BLE beacon — primary 2.4 GHz capture |
+| HackRF / RTL-SDR | To decide | Optional: 2.4 GHz IQ capture if needed |
+| IP Camera x1 | To buy (Phase 4) | Vision AI — Hikvision/Dahua 4MP PoE |
+| Laptop (Quadro M1200, Ubuntu 24) | Ready — driver updated | Development machine |
 
 ---
 
@@ -125,8 +149,8 @@ Hidden BLE beacon in room → detected → localized to correct bench → logged
 |---|---|---|---|
 | Detection rate | >90% | Not yet measured | Phase 3 |
 | Classification rate | >90% | Not yet measured | Phase 3 |
-| Localization median error | <2 m | 0.0 m (sim only, 4-corner config) | Phase 3 real hardware |
-| Correct-bench rate | >80% | 100% (sim only) | Phase 3 real hardware |
+| Localization median error | <2 m | 0.0 m (sim, FingerprintKNN, window=40) | Phase 3 real hardware |
+| Correct-bench rate | >80% | 94.9% (sim, FingerprintKNN) | Phase 3 real hardware |
 | Vision seat accuracy | >90% | Not yet measured | Phase 4 |
 | Alert latency | <5 s | Not yet measured | Phase 5 |
 | False alerts | <1/hr | Not yet measured | Phase 5 |
@@ -135,13 +159,11 @@ Hidden BLE beacon in room → detected → localized to correct bench → logged
 
 ## Open items
 
-- GNU Radio not yet installed on Windows (Phase 3 blocker).
-- ESP32 BLE beacon not yet flashed (Phase 3 blocker).
-- `DigitalTwin/README.md` not yet written — referenced above but missing from repo.
-- Privacy/retention policy for captured signals must exist before any pilot
-  deployment (passive sensing only, no demodulation) — not yet drafted.
-- Real RF hardware capture (Phase 3) is the current blocker for validating
-  Digital Twin's simulated localization numbers.
+- ESP32 boards not yet ordered (Phase 3 blocker — primary 2.4 GHz capture tool).
+- USRP frequency limitation: max 2.2 GHz — decision needed on HackRF/RTL-SDR for IQ capture.
+- `DigitalTwin/README.md` exists ✅ but needs link update to reflect ESP32 strategy.
+- Privacy/retention policy not yet drafted — required before any real pilot deployment.
+- Real RF hardware capture (Phase 3) is the current blocker for validating simulated localization numbers.
 
 ---
 
