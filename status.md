@@ -19,6 +19,7 @@ not a change in scope.
 | RF Intelligence | Person 1 (RF + Digital Twin) |
 | Vision AI | Person 2 (Vision + AI) |
 | AI / localization | Person 2 (Vision + AI) |
+| Fusion & Platform | Both |
 
 ---
 
@@ -30,7 +31,7 @@ not a change in scope.
 | Phase 2 — Digital Twin | Digital Twin | Person 1 | Complete ✅ |
 | Phase 3 — RF Intelligence | RF | Person 1 | Deferred — simulation first |
 | Phase 4 — Vision AI | Vision | Person 2 | In progress |
-| Phase 5 — Fusion & Platform | Fusion/Backend/Dashboard | Both | Starting now |
+| Phase 5 — Fusion & Platform | Fusion/Backend/Dashboard | Both | In progress 🔄 |
 | Phase 6 — Real Hardware | RF + Vision | Both | Not started |
 
 ---
@@ -49,7 +50,7 @@ is added only after the simulation demo is validated and working.
 - When real hardware arrives, it replaces synthetic event sources with no
   change to the fusion engine or dashboard.
 
-### New order of work
+### Order of work
 
 ```
 Phase 5: Full simulation demo (current priority)
@@ -94,26 +95,19 @@ Full real-hardware validated system
 
 ## RF Intelligence (Phase 3) — deferred
 
-**Decision:** Real RF capture deferred until Phase 5 simulation demo is complete
-and validated. No hardware needed until then.
+**Decision:** Real RF capture deferred until Phase 5 simulation demo is
+complete and validated. No hardware needed until then.
 
-**What exists:**
-- Synthetic RSSI dataset (39,600 samples) — used by AI/localization model ✅
+**What exists now:**
+- Synthetic RSSI dataset (39,600 samples) ✅
 - FingerprintKNN localization model trained and passing targets ✅
 - Energy detector and classifier: to be built in Phase 5 against synthetic events
 
-**What is deferred:**
-- ESP32 hardware purchase
+**What is deferred to Phase 6:**
+- ESP32 hardware purchase (~$20 for 4 boards)
 - Real RSSI fingerprint collection
-- USRP spectrum capture
-- HackRF/RTL-SDR decision
-
-**When Phase 3 resumes (Phase 6):**
-1. Order 4x ESP32 (~$20 total)
-2. Flash BLE beacon + RSSI scanner firmware
-3. Deploy at confirmed corner positions
-4. Collect real RSSI — replace synthetic dataset
-5. Revalidate FingerprintKNN on real data
+- USRP spectrum capture (note: available USRP covers 50 MHz–2.2 GHz only)
+- HackRF/RTL-SDR decision for 2.4 GHz IQ capture
 
 ---
 
@@ -124,7 +118,7 @@ and validated. No hardware needed until then.
 - Pipeline scaffolded in `Vision/perception/`: detection, homography,
   seat mapping, event emission, tests.
 - 30 pytest tests passing.
-- Synthetic geometry results validated (see below).
+- Synthetic geometry results validated.
 
 ### Camera position — confirmed ✅
 
@@ -132,8 +126,8 @@ and validated. No hardware needed until then.
 |---|---|
 | Position | X=6.1m, Y=2.60m, Z=3.80m |
 | FOV | 110° horizontal |
-| Coverage | 93/99 seats (93.9%) |
-| Blind spots | 6 front-edge seats — accepted for Phase 1 (teacher presence covers them) |
+| Coverage | 93/99 seats (93.9%) — validated by project_vision_dataset.py |
+| Blind spots | 6 front-edge seats — accepted (teacher presence covers them) |
 | Second camera | Deferred to Phase 6 |
 
 ### Synthetic geometry results ✅
@@ -145,7 +139,7 @@ and validated. No hardware needed until then.
 | Median position error | 0.194 m |
 | Single / multi occupancy | 100% / 100% |
 
-Geometry-only — no detection error included. Full results: `Vision/perception/results/`.
+Full results: `Vision/perception/results/`
 
 **What is deferred to Phase 6:**
 - IP camera purchase
@@ -156,77 +150,60 @@ Geometry-only — no detection error included. Full results: `Vision/perception/
 
 ---
 
-## Fusion & Platform (Phase 5) — starting now ✅
+## Fusion & Platform (Phase 5) — in progress 🔄
 
 **Owner:** Both
-**Goal:** Build the complete end-to-end system running entirely on synthetic
-data — looks and behaves exactly like the real system.
+**Goal:** Full end-to-end simulation demo — looks and behaves like the real system.
 
-### What the simulation demo will show
+### What is built
 
-```
-Synthetic RF events       Synthetic Vision events
-(AI/localization)    +    (Vision/perception)
-        ↓                        ↓
-        └──────  Fusion Engine  ─┘
-                     ↓
-             Confidence Score
-                     ↓
-           React Dashboard
-    ┌──────────────────────────┐
-    │  Live Hall Map           │
-    │  ● ● ● ● ● ● ● ● ●      │
-    │  ● ● ●[!]● ● ● ● ●      │  ← alert at R04-C03
-    │                          │
-    │  ALERT: R04-C03          │
-    │  Protocol: BLE           │
-    │  Confidence: 94%         │
-    │  Duration: 18s           │
-    └──────────────────────────┘
-```
-
-### Components to build
-
-| Component | Owner | Purpose |
+| Component | Status | Location |
 |---|---|---|
-| Event simulator | Person 1 | Generates synthetic RF + Vision JSON events in real time |
-| FastAPI backend | Person 1 | Receives events, stores in DB, exposes API |
-| PostgreSQL schema | Person 1 | Events, sessions, alerts, evidence tables |
-| Fusion engine | Person 2 | Correlates RF + Vision by time + position → confidence |
-| React dashboard | Person 2 | Live hall map, alerts, event log, evidence panel |
-| Docker-compose | Both | One command runs the entire system |
+| FastAPI backend | ✅ Built | `Backend/app/main.py` |
+| SQLite database | ✅ Built | `Backend/guardian_ai.db` (auto-created) |
+| Event ingestion API | ✅ Built | `Backend/app/api/events.py` |
+| Alerts API | ✅ Built | `Backend/app/api/alerts.py` |
+| Sessions API | ✅ Built | `Backend/app/api/sessions.py` |
+| Fusion engine | ✅ Built | `Backend/app/core/fusion.py` |
+| Scenario simulator | ✅ Built | `Backend/app/api/simulator.py` |
+| WebSocket live feed | ✅ Built | `Backend/app/api/ws.py` |
+| React dashboard | ✅ Built | `Dashboard/guardian_dashboard_v2.html` |
 
-### Demo scenario (runs automatically)
+### How to run
+
+```bash
+cd Backend
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Then open `Dashboard/guardian_dashboard_v2.html` in browser.
+API docs at `http://localhost:8000/docs`.
+
+### Demo scenario
 
 ```
-T=0s:   99 seats shown green (empty)
-T=5s:   BLE signal near R04-C03 → seat turns yellow
-T=8s:   Vision confirms person at R04-C03
-T=12s:  Signal continues → confidence rises to 94%
-T=18s:  ALERT fired → seat turns red → evidence saved
+T=0s:   99 students seated — all seats green
+T=2s:   BLE burst detected near R04-C03 → seat yellow
+T=5s:   Vision confirms person at R04-C03
+T=9s:   Fusion: confidence 89%
+T=11s:  ALERT fired → R04-C03 red → 94% confidence
+T=13s:  Second BLE burst near R07-R01
+T=17s:  Second ALERT fired → R07-R01 red → 87% confidence
 ```
 
-### Stack
+### Fusion engine logic
 
-- Backend: Python + FastAPI
-- Database: PostgreSQL
-- Message bus: ZeroMQ or MQTT
-- Frontend: React
-- Deployment: Docker + docker-compose
-- No Unreal Engine, no Blender, no hardware needed
+Matches RF and Vision events by **timing** (within 30s window) not position
+alone — a BLE signal that appears when a hand moves under the desk is the
+real evidence. Confidence threshold for alert: 70%.
 
-### Person 1 immediate tasks
+### What remains for Phase 5
 
-1. Install FastAPI + PostgreSQL + Docker
-2. Build event simulator (synthetic RF + Vision JSON events)
-3. Build FastAPI backend + database schema
-4. Expose REST API for fusion engine and dashboard
-
-### Person 2 immediate tasks
-
-1. Build fusion engine (spatial + temporal correlation → confidence)
-2. Build React dashboard (hall map + alerts + event log)
-3. Wire everything together with docker-compose
+- [ ] Connect dashboard WebSocket to backend for true real-time push
+- [ ] PostgreSQL migration (currently SQLite) — needs Docker
+- [ ] Docker-compose to run full system with one command
+- [ ] Evidence packaging (screenshot + RF snapshot + timestamp)
+- [ ] React rebuild of dashboard (currently vanilla HTML)
 
 ---
 
@@ -234,10 +211,11 @@ T=18s:  ALERT fired → seat turns red → evidence saved
 
 | Item | Status | When needed |
 |---|---|---|
-| USRP (50 MHz – 2.2 GHz) | Owned — cannot reach 2.4 GHz | Phase 6 sub-GHz only |
-| ESP32 x4 | To order when Phase 6 starts | Phase 6 real RSSI |
+| USRP (50 MHz–2.2 GHz) | Owned — cannot reach 2.4 GHz | Phase 6 sub-GHz only |
+| ESP32 x4 | To order when Phase 6 starts (~$20) | Phase 6 real RSSI |
 | HackRF / RTL-SDR | Decision deferred | Phase 6 optional IQ capture |
 | IP Camera x1 | To buy when Phase 6 starts | Phase 6 real footage |
+| Laptop (Quadro M1200, Windows 10) | Ready — driver 582.70 | Development machine |
 
 ---
 
@@ -257,14 +235,15 @@ T=18s:  ALERT fired → seat turns red → evidence saved
 
 ## Open items
 
-- Phase 5 not yet started — starting now (highest priority).
+- Phase 5 WebSocket real-time push not yet connected to dashboard.
+- Docker not yet installed — PostgreSQL migration blocked.
 - Privacy/retention policy not yet drafted — required before any real pilot.
 - `DigitalTwin/README.md` needs update to reflect simulation-first strategy.
-- All hardware deferred to Phase 6 — no purchases needed until Phase 5 demo is validated.
+- All hardware deferred to Phase 6.
 
 ---
 
 ## Repo
 
 - Public: https://github.com/Mohamedhassan268/ai-guardian
-- Latest commit: Camera confirmed Z=3.80m, 93/99 coverage, simulation-first strategy adopted.
+- Latest: Phase 5 in progress — Backend + Dashboard built, simulation demo working.
