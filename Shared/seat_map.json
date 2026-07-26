@@ -1112,7 +1112,7 @@
       "camera_id": "CAM_01_Front_Center",
       "position": {
         "x": 6.1,
-        "y": 5.0,
+        "y": 2.6,
         "z": 3.8
       },
       "ceiling_height": 4.0,
@@ -1120,7 +1120,7 @@
       "resolution": "1920x1080",
       "fps": 25,
       "direction": "pointing toward students (positive Y)",
-      "covers": "estimated 99/99 seats \u2014 validate with project_vision_dataset.py"
+      "covers": "93/99 seats (93.9%) \u2014 validated, 6 front-edge seats blind spot accepted"
     }
   ],
   "rf_nodes": [
