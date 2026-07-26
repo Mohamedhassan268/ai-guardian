@@ -1,6 +1,6 @@
 # Status
 
-_Last updated: 2026-07-25_
+_Last updated: 2026-07-26_
 
 Snapshot of where each track stands. See `CLAUDE.md` for architecture/conventions
 and `ROADMAP.md` for deferred/out-of-scope ideas.
@@ -43,11 +43,12 @@ not a change in scope.
   and recorded in `DigitalTwin/rf_simulation/best_node_placement.json`.
 - 39,600-row synthetic RSSI dataset generated for AI training —
   `AI/training_data/rssi_dataset.csv`.
-- Camera position defined: X=6.1m, Y=2.60m, Z=2.73m (front-center ceiling, FOV=110°).
+- Camera position confirmed and validated: X=6.1m, Y=2.60m, Z=3.80m
+  (front-center ceiling, FOV=110°, 93/99 seats visible).
 - The three generator scripts behind all of the above (Blender hall builder, RF
   node-placement optimizer, RF propagation simulator) are now committed under
   `DigitalTwin/scripts/`, with repo-relative paths and a fixed RNG seed so
-  reruns are reproducible — previously they existed only as loose local files.
+  reruns are reproducible.
 - Full handoff detail: `DigitalTwin/README.md`.
 
 ### Deliverables handed to team
@@ -68,7 +69,7 @@ not a change in scope.
 **Goal:** Capture real RF data at 2.4 GHz to validate and replace the simulated
 dataset from Phase 2.
 
-### Hardware status (UPDATED)
+### Hardware status
 
 The available USRP covers **50 MHz – 2.2 GHz only** — it cannot reach 2.4 GHz.
 This changes the capture strategy for Phase 3:
@@ -111,7 +112,7 @@ This changes the capture strategy for Phase 3:
 
 ### Next milestone
 
-4 ESP32 nodes deployed → real RSSI collected at all 99 seats →
+4 ESP32 nodes deployed → real RSSI collected at 20+ seat positions →
 compared against simulated fingerprint → localization accuracy validated on real hardware.
 
 ### Expected deliverables
@@ -135,62 +136,53 @@ compared against simulated fingerprint → localization accuracy validated on re
   homography, nearest-seat mapping, and shared-schema event emission
   (`person_detected`), mirroring `AI/localization/`'s structure and tests.
 - Model: stock pretrained YOLOv8 (`yolov8n.pt` via `ultralytics`), filtered to
-  the COCO "person" class. Not trained or fine-tuned on any exam-hall-specific
-  data — this is an off-the-shelf detector, unlike the AI/localization model,
-  which is trained on Guardian AI's own simulated RSSI data.
-- 30 pytest tests pass, validating pipeline *logic* (homography math,
-  seat-mapping, event-schema shape, detection filtering) against synthetic
-  coordinates.
+  the COCO "person" class. Not trained or fine-tuned on exam-hall-specific data.
+- 30 pytest tests pass, validating pipeline logic against synthetic coordinates.
 
-### Synthetic dataset + geometry results
+### Camera position — confirmed and validated ✅
 
-`DigitalTwin/scripts/project_vision_dataset.py` generates a synthetic dataset
-without Blender (pure pinhole projection): per-seat visibility, ground-truth
-pixel bounding boxes, and camera calibration correspondences.
-`render_vision_dataset.py` is the Blender twin that additionally renders PNGs,
-for whoever has Blender when real imagery is needed.
+After testing multiple positions, the camera is confirmed at:
 
-Measured by `python Vision/perception/train.py` (full package in
-`Vision/perception/results/`):
+| Parameter | Value |
+|---|---|
+| Position | X=6.1m, Y=2.60m, Z=3.80m |
+| FOV | 110° horizontal |
+| Coverage | 93/99 seats (93.9%) |
+| Blind spots | 6 front-edge seats (rows 1-2 edges) |
+| Blind spot decision | Accepted for Phase 1 — teacher presence covers those seats |
+| Second camera | Deferred to Phase 6 |
+
+Coverage validated by `DigitalTwin/scripts/project_vision_dataset.py` at 50° pitch.
+See `Vision/perception/results/seat_coverage_map.png`.
+
+### Synthetic dataset + geometry results (updated) ✅
 
 | Metric | Result |
 |---|---|
-| Frame coverage | 84/99 seats (84.8%) |
-| Correct seat (geometry only) | 100.0% over 201 people |
-| Median position error | 0.160 m |
+| Frame coverage | 93/99 seats (93.9%) — up from 84/99 after camera Z raised to 3.80m |
+| Correct seat (geometry only) | 100.0% over 220 people |
+| Median position error | 0.194 m |
+| Mean position error | 0.207 m |
 | Single / multi occupancy | 100% / 100% |
 
-**Read these carefully — they are geometry-only.** They measure the
-homography -> seat-mapping chain given *perfect* ground-truth pixel input. They
-include **no detection error**, so they are NOT the `>90% vision seat accuracy`
-target below. The 0.160 m residual is bounding-box geometry (it equals the
-placeholder's body radius), not calibration drift.
+**These are geometry-only results** — homography and seat-mapping chain given
+perfect pixel input, no detection error included. Not the >90% vision seat
+accuracy target, which requires a real detector on real footage.
 
-Two real findings, both measured rather than assumed:
-- **15 of 99 seats are a permanent blind spot.** The front rows sit almost
-  directly beneath the ceiling camera. `seat_map.json`'s
-  `"covers": "all 11 rows, all 99 seats"` is optimistic and should be corrected.
-  Fixing it needs a second camera or a moved/re-aimed one — a Digital Twin
-  decision, not a software one. See `results/seat_coverage_map.png`.
-- **The homography must be calibrated on the bench plane (z=0.45), not the
-  floor.** Feet rest on the bench surface; calibrating on the floor pushes every
-  point ~20% of its distance away from the camera (~2.4 m at row 11, i.e. two
-  rows wrong). Both generators now use the bench plane.
+The homography is calibrated on the bench plane (z=0.45m), not the floor —
+this was a real defect found and fixed during evaluation (floor calibration
+causes ~2.4m error at back rows).
+
+Full results package: `Vision/perception/results/`
 
 ### Next steps
 
-1. Set up ByteTrack multi-frame tracking (named in `CLAUDE.md`'s stack) once a
-   live frame stream exists — out of scope for the current single-frame pipeline.
-2. Calibrate from real pixel<->world correspondences once real/rendered footage
-   exists — see the blind-spot finding above first, since it affects placement.
-3. Run the pretrained YOLOv8 detector on real frames — swap
-   `evaluate._GroundTruthDetector` for `detection.PersonDetector` — to get a
-   true end-to-end number comparable to the `CLAUDE.md` target.
-4. Output behavior events (head-down duration, hand-under-desk) as JSON, once
-   detection is validated on real footage.
+1. Buy IP camera (see Hardware) — place at confirmed position.
+2. Run pretrained YOLOv8 on real frames to get true end-to-end accuracy.
+3. Set up ByteTrack multi-frame tracking once live stream exists.
+4. Output behavior events (head-down, hand-under-desk) as JSON.
 
-**Waiting on:** IP camera purchase (see Hardware below); resolution of the
-15-seat blind spot (second camera or reposition).
+**Waiting on:** IP camera purchase.
 
 ---
 
@@ -201,8 +193,8 @@ Two real findings, both measured rather than assumed:
   timing, not position alone).
 - Backend/dashboard: FastAPI + PostgreSQL + React + Docker.
 - Evidence packaging: video clip + RF snapshot + timestamp.
-- Can proceed now against the shared event schema using synthetic events from
-  both `AI/localization` and `Vision/perception` — not blocked on hardware.
+- **Can proceed now** against the shared event schema using synthetic events
+  from both `AI/localization` and `Vision/perception` — not blocked on hardware.
 
 ---
 
@@ -213,8 +205,8 @@ Two real findings, both measured rather than assumed:
 | USRP (50 MHz – 2.2 GHz) | Owned — cannot reach 2.4 GHz | Sub-2.2 GHz spectrum capture only |
 | ESP32 x4 | To order (~$20 total) | 3x RSSI nodes + 1x BLE beacon — primary 2.4 GHz capture |
 | HackRF / RTL-SDR | To decide | Optional: 2.4 GHz IQ capture if needed |
-| IP Camera x1 | To buy (Phase 4) | Vision AI — Hikvision/Dahua 4MP PoE; placement should account for the 15-seat blind spot above |
-| Laptop (Quadro M1200, Ubuntu 24) | Ready — driver updated | Development machine |
+| IP Camera x1 | To buy | Vision AI — Hikvision/Dahua 4MP PoE, place at (6.1, 2.60, 3.80m) |
+| Laptop (Quadro M1200, Windows 10) | Ready — driver updated to 582.70 | Development machine |
 
 ---
 
@@ -224,9 +216,9 @@ Two real findings, both measured rather than assumed:
 |---|---|---|---|
 | Detection rate | >90% | Not yet measured | Phase 3 |
 | Classification rate | >90% | Not yet measured | Phase 3 |
-| Localization median error | <2 m | 0.0 m (sim, FingerprintKNN, window=40) | Phase 3 real hardware |
-| Correct-bench rate | >80% | 94.9% (sim, FingerprintKNN) | Phase 3 real hardware |
-| Vision seat accuracy | >90% | Not yet measured end-to-end. Geometry-only proxy: 100% on synthetic data (no detection error included) — see Vision AI section | Phase 4 real footage |
+| Localization median error | <2 m | 0.0 m (sim, FingerprintKNN, window=40) ✅ | Phase 3 real hardware |
+| Correct-bench rate | >80% | 94.9% (sim, FingerprintKNN) ✅ | Phase 3 real hardware |
+| Vision seat accuracy | >90% | Geometry-only proxy: 100% (no detection error). End-to-end: not yet measured | Phase 4 real footage |
 | Alert latency | <5 s | Not yet measured | Phase 5 |
 | False alerts | <1/hr | Not yet measured | Phase 5 |
 
@@ -236,20 +228,15 @@ Two real findings, both measured rather than assumed:
 
 - ESP32 boards not yet ordered (Phase 3 blocker — primary 2.4 GHz capture tool).
 - USRP frequency limitation: max 2.2 GHz — decision needed on HackRF/RTL-SDR for IQ capture.
-- `DigitalTwin/README.md` exists ✅ but needs a link update to reflect the ESP32 strategy.
-- Privacy/retention policy for captured signals must exist before any pilot
-  deployment (passive sensing only, no demodulation) — not yet drafted.
-- Real RF hardware capture (Phase 3) is the current blocker for validating
-  Digital Twin's simulated localization numbers.
-- Real or rendered camera frames (Phase 4) are the current blocker for
-  measuring end-to-end Vision detection/seat-accuracy numbers.
-- 15 of 99 seats are outside the documented camera's field of view — needs a
-  second camera or repositioning decision before real capture (see Vision AI
-  section); `seat_map.json`'s coverage claim should be corrected to match.
+- `DigitalTwin/README.md` needs update to reflect ESP32 capture strategy.
+- Privacy/retention policy for captured signals not yet drafted — required before any pilot.
+- Real RF hardware (Phase 3) is the current blocker for validating simulated localization numbers.
+- IP camera not yet purchased (Phase 4 blocker for real footage).
+- Phase 5 can start now — not blocked on hardware.
 
 ---
 
 ## Repo
 
 - Public: https://github.com/Mohamedhassan268/ai-guardian
-- Latest commit: `a641192` — project progress report covering Phases 1-4.
+- Latest commit: Camera confirmed Z=3.80m, 93/99 coverage validated, Vision results updated.
