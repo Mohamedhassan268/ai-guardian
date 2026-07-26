@@ -1,0 +1,32 @@
+{
+  "evaluation_type": "geometry_only",
+  "note": "Ground-truth pixel input, no object detection. Not directly comparable to CLAUDE.md's vision seat accuracy target, which includes detection error.",
+  "camera_pitch_down_degrees": 50,
+  "calibration_points": 23,
+  "coverage": {
+    "in_frame_seats": 93,
+    "total_seats": 99,
+    "frame_coverage_rate": 0.9393939393939394
+  },
+  "overall": {
+    "n": 220,
+    "correct_seat_rate": 1.0,
+    "median_position_error_m": 0.19357305425465332,
+    "mean_position_error_m": 0.20661794326068017,
+    "max_position_error_m": 0.3374416696153526
+  },
+  "single": {
+    "n": 93,
+    "correct_seat_rate": 1.0,
+    "median_position_error_m": 0.18869199020946834,
+    "mean_position_error_m": 0.20364850559983133,
+    "max_position_error_m": 0.3374416696153526
+  },
+  "multi": {
+    "n": 127,
+    "correct_seat_rate": 1.0,
+    "median_position_error_m": 0.2006054242198073,
+    "mean_position_error_m": 0.20879241335878204,
+    "max_position_error_m": 0.3374416696153526
+  }
+}

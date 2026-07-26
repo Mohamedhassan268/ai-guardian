@@ -1,0 +1,24 @@
+Guardian AI – Vision Geometry Evaluation Report
+==================================================
+
+Evaluation type:     GEOMETRY ONLY (ground-truth pixel input, no detection)
+Camera pitch:        50 deg down
+Calibration points:  23
+
+Frame coverage (a fixed-camera limitation, reported not asserted):
+  Seats in frame:    93/99 (93.9%)
+
+Geometry accuracy (over in-frame people):
+  People scored:     220
+  Correct seat:      100.0%
+  Median error:      0.194 m
+  Mean error:        0.207 m
+  Max error:         0.337 m
+
+By scene type:
+  single: n=93, correct=100.0%, median=0.189 m
+  multi:  n=127, correct=100.0%, median=0.201 m
+
+Position error is non-zero by design: the homography is an approximate planar
+fit, and placeholder feet sit at bench height (0.45 m) while the calibration
+plane is the true floor (0 m) — an expected parallax, not an error in the code.
