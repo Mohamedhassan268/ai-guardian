@@ -1,6 +1,6 @@
 # Status
 
-_Last updated: 2026-07-28_
+_Last updated: 2026-07-29_
 
 Snapshot of where each track stands. See `CLAUDE.md` for architecture/conventions
 and `ROADMAP.md` for deferred/out-of-scope ideas.
@@ -35,8 +35,7 @@ and `ROADMAP.md` for deferred/out-of-scope ideas.
 ## Strategy Decision — Simulation First
 
 **Decision (2026-07-26):** Complete the full end-to-end system in simulation
-before acquiring any real hardware. Real hardware (ESP32, IP camera) is added
-only after the simulation demo is validated.
+before acquiring any real hardware.
 
 ```
 Phase 5: Full simulation demo (current priority)
@@ -56,10 +55,10 @@ Full real-hardware validated system
 
 - Full 3D exam hall modeled (12.2m x 17.8m x 4.0m), all 99 seats mapped.
 - Camera confirmed: X=6.1m, Y=2.60m, Z=3.80m — 93/99 seats (93.9%) visible.
-  Camera sits in the teacher zone at Y=2.60m, before the first student row (Y=2.80m).
+  Sits in the teacher zone at Y=2.60m, before the first student row (Y=2.80m).
 - RF node placement: 4-corner layout confirmed across 7 tested configurations.
-- 39,600-row clean synthetic RSSI dataset generated.
-- **NEW:** 59,400-row *realistic* RSSI dataset with full impairment model.
+- 39,600-row clean synthetic RSSI dataset.
+- 59,400-row *realistic* RSSI dataset with a 10-impairment model.
 - Generator scripts in `DigitalTwin/scripts/` — deterministic reruns (fixed seed).
 
 ### Deliverables
@@ -69,19 +68,17 @@ Full real-hardware validated system
 | seat_map.json | Shared/ | Everyone |
 | rssi_dataset.csv (clean) | AI/training_data/ | Person 2 (AI) |
 | rssi_fingerprint.json | AI/training_data/ | Person 2 (AI) |
-| **rssi_realistic.csv** | AI/training_data/ | Person 2 — retrain on this |
-| **rssi_realistic_summary.json** | RF/simulation/ | Simulator reads this |
+| rssi_realistic.csv | AI/training_data/ | Person 2 — retrain on this |
+| rssi_realistic_summary.json | RF/simulation/ | Simulator + fusion read this |
 | best_node_placement.json | DigitalTwin/rf_simulation/ | Everyone |
 
 ---
 
-## RF Intelligence (Phase 3) — deferred, but realistic data model complete ✅
-
-Real RF capture deferred until Phase 5 is complete. What exists now:
+## RF Intelligence (Phase 3) — deferred, realistic data model complete ✅
 
 - Clean synthetic RSSI dataset (39,600 samples) ✅
-- FingerprintKNN localization model — 0.0m median error, 94.9% correct-bench ✅
-- **Realistic RSSI dataset (59,400 samples)** with a 10-impairment model ✅
+- FingerprintKNN localization model — 0.0 m median error, 94.9% correct-bench ✅
+- Realistic RSSI dataset (59,400 samples), 10-impairment model ✅
 
 ### Realistic impairment model
 
@@ -95,14 +92,14 @@ Real RF capture deferred until Phase 5 is complete. What exists now:
 | 6 | Complete packet loss | 8% |
 | 7 | Wi-Fi interference bursts | 5% probability, +8 dB |
 | 8 | Temporal RSSI drift | σ = 2.0 dB |
-| 9 | RSSI quantization | integer dBm (real hardware behaviour) |
+| 9 | RSSI quantization | integer dBm |
 | 10 | Saturation / noise floor | −30 dBm max, −95 dBm floor |
 
-Combined noise ≈ 8.3 dB vs 3.0 dB in the clean dataset.
-The simulator now draws per-node RSSI from this dataset rather than hardcoded values.
+Combined noise ≈ 8.3 dB vs 3.0 dB clean. The simulator and the fusion engine's
+localization scorer both read from this dataset.
 
 **Predicted degradation on real hardware:** median error 0.5–2.0 m,
-correct-bench 70–90% (vs 0.0 m / 94.9% clean). To be confirmed in Phase 6.
+correct-bench 70–90%. To be confirmed in Phase 6.
 
 **Deferred to Phase 6:** ESP32 hardware, real RSSI collection, USRP sub-GHz capture.
 
@@ -113,14 +110,13 @@ correct-bench 70–90% (vs 0.0 m / 94.9% clean). To be confirmed in Phase 6.
 **Owner:** Person 2
 
 - Pipeline: detection, homography, seat mapping, event emission, 30 tests passing.
-- Camera coverage: 93/99 seats (93.9%) validated by `project_vision_dataset.py`.
+- Camera coverage: 93/99 seats (93.9%).
 - Geometry results: 100% correct seat, 0.194 m median error (220 people).
 - Homography calibrated on the **bench plane (z=0.45 m)**, not the floor —
   floor calibration caused ~2.4 m error at the back rows.
-- Full results: `Vision/perception/results/`
 
-**These are geometry-only figures.** They assume perfect pixel input and include
-no detector error, so they are not the >90% end-to-end target.
+**These are geometry-only figures** — perfect pixel input, no detector error.
+They are not the >90% end-to-end target.
 
 **Deferred to Phase 6:** IP camera, real footage, YOLO fine-tuning, ByteTrack,
 real behaviour event detection.
@@ -128,8 +124,6 @@ real behaviour event detection.
 ---
 
 ## Fusion & Platform (Phase 5) — in progress 🔄
-
-**Owner:** Both
 
 ### What is built and validated ✅
 
@@ -140,68 +134,87 @@ real behaviour event detection.
 | Event ingestion API | ✅ Working | `Backend/app/api/events.py` |
 | Alerts API | ✅ Working | `Backend/app/api/alerts.py` |
 | Sessions API | ✅ Working | `Backend/app/api/sessions.py` |
-| **Fusion engine v5** | ✅ Validated | `Backend/app/core/fusion.py` |
-| **Simulator v5** (realistic RSSI) | ✅ Validated | `Backend/app/api/simulator.py` |
+| **Fusion engine v7** | ✅ 5/5 tests pass | `Backend/app/core/fusion.py` |
+| **Simulator v7** | ✅ 5-check graded test | `Backend/app/api/simulator.py` |
 | WebSocket live push | ✅ Connected | `Backend/app/api/ws.py` |
 | Dashboard v3 | ✅ Live | `Dashboard/guardian_dashboard_v3.html` |
 
-### Fusion engine v5 — multi-evidence, behaviour-gated
+### Fusion engine v7 — eight evidence sources
 
-Eight evidence sources, each contributing to an explainable confidence score.
-Every alert stores its full evidence breakdown so a decision can be audited.
+Every alert stores its full evidence breakdown, so a decision is auditable
+rather than a bare confidence number.
 
 | Evidence | Weight | Measures |
 |---|---|---|
 | RF signal present | 25% | Required — no RF, no alert |
-| Localization quality | 15% | RSSI variance across the 4 nodes |
+| Localization quality | 15% | Fingerprint match against expected RSSI vector |
 | Vision person at seat | 20% | Scaled 0.35→1.00 by behaviour strength |
 | Behaviour evidence | 15% | phone_visible / ear_touch / hand_under_desk / head_down |
 | Temporal correlation | 10% | Scaled 0.30→1.00 by behaviour strength |
-| Signal duration + burst | 8% | Sustained TX + repeating advertisements |
+| Duration + burst + persistence | 8% | Sustained TX, repeating advertisements |
 | Protocol fingerprint | 5% | BLE+WIFI from one source = phone signature |
 | Cross-sensor agreement | 7% | Scaled 0.30→1.00 by behaviour strength |
 
-**Proportional behaviour gating (the key design decision).**
-A seated person is true of all 99 seats, so presence alone must not raise an alert.
-Presence-based weights start at a floor and unlock in proportion to how suspicious
-the observed behaviour actually is:
+**Three mechanisms carry most of the reliability:**
 
-```
-vision_factor = 0.35 + 0.65 * behaviour_score
-corr_gate     = 0.30 + 0.70 * behaviour_score
-```
+1. **Proportional behaviour gating.** A seated person is true of all 99 seats, so
+   presence alone must not raise an alert. Presence weights start at a floor and
+   unlock in proportion to how suspicious the behaviour actually is:
+   `vision_factor = 0.35 + 0.65 × behaviour`, `corr_gate = 0.30 + 0.70 × behaviour`.
+   `head_down` (0.5 — common in any exam) opens the gate to 0.65; `phone_visible`
+   (1.0) opens it fully.
 
-`head_down` (score 0.5, common during any exam) opens the gate to 0.65.
-`phone_visible` (score 1.0) opens it fully. Two earlier iterations were rejected:
-v3 alerted at 72% on RF + a seated person; v4 used a binary gate that let a single
-`head_down` jump straight to 90%.
+2. **Persistence ceiling.** Sustained-ness caps the maximum achievable confidence:
+   1 window → 0.68 (below threshold, always), 2 windows → 0.93, 3+ → 0.99.
+   Strong evidence is not punished; it must simply persist, as real cheating does
+   and a brief phone wake-up does not.
 
-Alert thresholds: **70%** normal seats, **55%** blind-spot seats
-(the 6 front-edge seats can never get Vision corroboration).
+3. **Multi-seat disambiguation.** Candidate seats within 1.5 m are scored jointly
+   and one alert is emitted for the best match — *unless* both seats have their own
+   independent behaviour evidence, in which case they are separate incidents.
 
-### Validated demo results (2026-07-28)
+Thresholds: **70%** normal seats, **55%** blind-spot seats (the 6 front-edge seats
+can never get Vision corroboration).
 
-Graded scenario with two cheaters and three innocent RF sources:
+### Validated test results (2026-07-29)
 
-| Stage | Evidence | Gate | R04-C03 | R07-R01 | Result |
-|---|---|---|---|---|---|
-| Innocent — teacher laptop | RF only | 0.30 | 45% | — | no alert ✅ |
-| Innocent — wifi router | RF only | 0.30 | 45% | — | no alert ✅ |
-| Innocent — **seated student, phone in bag** | RF + seated | 0.30 | 57% | — | no alert ✅ |
-| Stage A | RF + seated | 0.30 | 57% | 48% | no alert ✅ |
-| Stage B | + head_down | 0.65 | 79% | 74% | alert |
-| Stage C | + hand_under_desk + localization | 0.91 | 96% | 92% | alert |
-| Stage D | + phone_visible + ear_touch + WIFI | 1.00 | 99% | 99% | alert |
+Graded scenario: 2 cheaters, 3 innocent RF sources, 1 transient blip,
+1 ambiguous device, 1 pair of genuinely separate adjacent cheaters.
 
-```
-Cheaters detected : 2/2
-False positives   : 0/3
-PASS — all cheaters caught, no innocent device alerted
-```
+| # | Check | Result |
+|---|---|---|
+| 1 | Cheaters detected | **2/2** PASS |
+| 2 | False positives | **0/3** PASS |
+| 3 | Ambiguous device → one alert | **1** PASS |
+| 4 | Transient blip rejected | **0** PASS |
+| 5 | Separate adjacent pair → two alerts | **2/2** PASS |
 
-The third innocent case — a real seated student whose phone emits BLE from a bag —
-is the hardest false positive in a real hall and the one this design most needed to
-survive. It scored 57%, thirteen points below threshold.
+**ALL TESTS PASS.**
+
+Confidence ladder for a cheater:
+
+| Stage | Evidence | Gate | Persist | Confidence |
+|---|---|---|---|---|
+| A | RF + seated | 0.30 | 0.25 | 45–57% — no alert |
+| B | + head_down | 0.63 | 0.60 | 78% — alert |
+| C | + hand_under_desk + localization | 0.85 | 1.00 | 88–90% |
+| D | + phone_visible + ear_touch + WIFI | 1.00 | 1.00 | 99% |
+
+Innocent controls: teacher laptop 41%, wifi router 37%,
+**seated student with phone in bag 57%** — the hardest case, 13 points clear.
+
+### Version history — each fix came from a test failure, not a feature request
+
+| Version | Defect found | Fix |
+|---|---|---|
+| v3 | Alerted at 72% on RF + a merely-seated person — would have fired on all 99 seats | Gate presence weights behind behaviour |
+| v4 | Binary gate: one `head_down` jumped straight to 90% | Make the gate proportional to behaviour strength |
+| v5 | Corner seats penalised — lopsided RSSI read as "uncertain" when it is the most informative profile | Fingerprint matching instead of variance |
+| v6 | 2-second blip alerted at 76%; neighbour radius 2.5 m spanned rows | Persistence ceiling; radius 1.5 m + independent-behaviour guard |
+| v7 | — | 5/5 tests pass |
+
+A flat persistence multiplier was tried and rejected: it dragged a genuine
+Stage B detection from 78% to 52%.
 
 ### How to run
 
@@ -211,6 +224,8 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 Open `Dashboard/guardian_dashboard_v3.html` in Chrome. API docs at `/docs`.
+The scenario takes ~3 minutes — the delays are deliberate so persistence
+windows fill as they would in a real exam.
 
 ### What remains for Phase 5
 
@@ -224,35 +239,47 @@ Open `Dashboard/guardian_dashboard_v3.html` in Chrome. API docs at `/docs`.
 
 ## Known issues / to revisit
 
-- **`score_localization` penalises corner seats.** It reads RSSI variance across
-  nodes as position uncertainty, but a seat next to one node legitimately produces
-  high variance (R07-R01: −59 to −76 dBm). That seat scored Loc:0.10 vs R04-C03's
-  0.15 and tracked 3–5 points lower at every stage. Both still alerted, but on real
-  hardware the seats nearest a node will be systematically under-scored — exactly
-  where localization should be most confident. Needs rework once real RSSI exists.
-- **Fusion constants are provisional.** `BEHAVIOR_SCORES` and the gate floors are
-  tuned against synthetic behaviour events that fire cleanly and on cue. Real YOLO
-  pose estimation will produce noisy, intermittent, sometimes wrong detections.
-  Expect to retune once real footage exists. The structure is sound; the numbers are not final.
+- **Fusion constants are provisional, and this is the most important caveat in
+  this document.** The structure has now survived five adversarial tests; the
+  constants have survived none. `BEHAVIOR_SCORES`, the gate floors, and the
+  persistence thresholds are tuned against synthetic behaviour events that fire
+  cleanly and on cue. Real YOLO pose estimation is intermittent, noisy, and
+  sometimes wrong. Expect to retune all of them against real footage.
+
+- **Adding a second protocol degrades localization.** At Stage D the WIFI bursts
+  carry `rssi + 2`, pushing the observed vector away from the seat's BLE
+  fingerprint — `Loc` fell from 0.15 to 0.11. It cost nothing because everything
+  else was saturated, but the direction is wrong: more evidence from the same
+  device should not reduce positional confidence. Proper fix is per-protocol
+  fingerprints, which needs the `node_id` column below.
+
+- **Event schema has no `node_id`.** Fingerprint matching currently compares
+  *sorted* RSSI values, so it captures the shape of a profile but not which node
+  is strongest — two seats with mirrored profiles could match equally well.
+  Adding `node_id` to the Event model fixes this properly and becomes necessary
+  anyway when real ESP32 data arrives.
+
+- **Persistence ceiling may become the binding constraint.** Most detections sit
+  at `persist=0.6` (ceiling 0.93). If thresholds rise or the gate widens, that
+  ceiling — not the evidence — will limit confidence.
 
 ---
 
 ## Hardware — all deferred to Phase 6
 
-| Item | Qty | Status | When needed |
+| Item | Qty | Status | Purpose |
 |---|---|---|---|
-| USRP (50 MHz–2.2 GHz) | 1 | Owned — **cannot reach 2.4 GHz** | Phase 6 sub-GHz only |
+| USRP (50 MHz–2.2 GHz) | 1 | Owned — **cannot reach 2.4 GHz** | Sub-GHz only |
 | ESP32 dev board | 5 | To order (~$25) | 4× RSSI nodes + 1× BLE test beacon |
-| IP Camera (Hikvision DS-2CD2143G2-I, 4MP PoE) | 1 | To buy (~$60–80) | Phase 6 real footage |
+| IP Camera (Hikvision DS-2CD2143G2-I, 4MP PoE) | 1 | To buy (~$60–80) | Real footage |
 | PoE switch (4-port) | 1 | To buy (~$25) | Powers camera |
 | Cat6 cable (5 m) | 1 | To buy (~$5) | Camera to switch |
-| Laptop (Quadro M1200, Windows 10) | 1 | Ready — driver 582.70 | Dev machine |
+| Laptop (Quadro M1200, Windows 10) | 1 | Ready | Dev machine |
 
 **Minimum to begin RF testing: ~$25 (ESP32 only).** Full setup ~$115–135.
 
 The USRP's 2.2 GHz ceiling means it cannot be used for 2.4 GHz work. ESP32 boards
-replace it for this project — they have a native 2.4 GHz radio and report RSSI
-directly, at roughly 1/60th the cost.
+replace it — native 2.4 GHz radio, RSSI reported directly, ~1/60th the cost.
 
 ---
 
@@ -260,27 +287,28 @@ directly, at roughly 1/60th the cost.
 
 | Metric | Target | Current | Measured in |
 |---|---|---|---|
-| Detection rate | >90% | Not yet measured | Phase 6 |
+| Detection rate | >90% | 2/2 in controlled test | Phase 6 |
 | Classification rate | >90% | Not yet measured | Phase 6 |
 | Localization median error | <2 m | 0.0 m (clean sim) ✅ | Phase 6 real hardware |
 | Correct-bench rate | >80% | 94.9% (clean sim) ✅ | Phase 6 real hardware |
 | Vision seat accuracy | >90% | 100% geometry proxy (sim) | Phase 6 real footage |
-| Alert latency | <5 s | Confirmed in demo ✅ | Phase 5 |
-| False alerts | <1/hr | **0/3 in controlled test** ✅ | Phase 5 sustained run + Phase 6 |
+| Alert latency | <5 s | Confirmed ✅ | Phase 5 |
+| False alerts | <1/hr | 0/3 in controlled test ✅ | Phase 5 sustained run + Phase 6 |
 
-Note: localization and correct-bench figures are from the *clean* dataset. The
-realistic dataset has not yet been used to retrain the model — that is Person 2's
-next task and will produce lower, more honest numbers.
+Localization and correct-bench figures are from the *clean* dataset. The realistic
+dataset has not yet been used to retrain the model — that will produce lower,
+more honest numbers.
 
 ---
 
 ## Open items
 
 - **Person 2: retrain FingerprintKNN on `rssi_realistic.csv`** and report the
-  degradation vs the clean dataset. This is the most informative outstanding task.
+  degradation vs the clean dataset. Most informative outstanding task.
+- Add `node_id` to the Event model (unblocks proper fingerprint matching).
 - Docker not yet installed — PostgreSQL migration and docker-compose blocked.
 - Privacy/retention policy not yet drafted — required before any real pilot.
-- `DigitalTwin/README.md` needs update to reflect the simulation-first strategy.
+- `DigitalTwin/README.md` needs update to reflect simulation-first strategy.
 - Dashboard does not yet display the fusion evidence breakdown.
 - All hardware deferred to Phase 6.
 
@@ -289,5 +317,5 @@ next task and will produce lower, more honest numbers.
 ## Repo
 
 - Public: https://github.com/Mohamedhassan268/ai-guardian
-- Latest: Fusion v5 — proportional behaviour gating, validated 2/2 detection
-  with 0/3 false positives against a controlled innocent-device set (2026-07-28).
+- Latest: Fusion v7 — persistence ceiling + corrected neighbour radius.
+  5/5 graded tests pass (2026-07-29).
