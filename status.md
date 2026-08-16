@@ -138,6 +138,7 @@ real behaviour event detection.
 | **Simulator v7** | ✅ 5-check graded test | `Backend/app/api/simulator.py` |
 | WebSocket live push | ✅ Connected | `Backend/app/api/ws.py` |
 | Dashboard v3 | ✅ Live | `Dashboard/guardian_dashboard_v3.html` |
+| RSSI fingerprint data | ✅ Committed | `RF/simulation/rssi_realistic_summary.json` |
 
 ### Fusion engine v7 — eight evidence sources
 
@@ -176,7 +177,7 @@ rather than a bare confidence number.
 Thresholds: **70%** normal seats, **55%** blind-spot seats (the 6 front-edge seats
 can never get Vision corroboration).
 
-### Validated test results (2026-07-29)
+### Validated test results (2026-07-29, confirmed across two runs)
 
 Graded scenario: 2 cheaters, 3 innocent RF sources, 1 transient blip,
 1 ambiguous device, 1 pair of genuinely separate adjacent cheaters.
@@ -200,8 +201,20 @@ Confidence ladder for a cheater:
 | C | + hand_under_desk + localization | 0.85 | 1.00 | 88–90% |
 | D | + phone_visible + ear_touch + WIFI | 1.00 | 1.00 | 99% |
 
-Innocent controls: teacher laptop 41%, wifi router 37%,
+Innocent controls: teacher laptop 41-45%, wifi router 37%,
 **seated student with phone in bag 57%** — the hardest case, 13 points clear.
+
+Reproduced twice with independent random RSSI draws, identical 5/5 result.
+Two passes matter more than one here: it means the thresholds are not sitting
+on a knife edge where noise decides the outcome.
+
+The fingerprint dataset is committed at `RF/simulation/rssi_realistic_summary.json`
+and resolved by a repo-relative path (with the old Desktop location kept as a
+fallback), so the repo is self-contained and a clone reproduces these results.
+A missing file now prints a loud boxed warning naming both consequences —
+localization silently falling back to the variance heuristic, and multi-seat
+disambiguation switching off — because silent degradation is more dangerous
+than an outright failure.
 
 ### Version history — each fix came from a test failure, not a feature request
 
@@ -311,11 +324,13 @@ more honest numbers.
 - `DigitalTwin/README.md` needs update to reflect simulation-first strategy.
 - Dashboard does not yet display the fusion evidence breakdown.
 - All hardware deferred to Phase 6.
+- `rssi_realistic.csv` (9.7 MB) is only needed for model training, not at
+  runtime — the 68 KB summary JSON is what the backend reads.
 
 ---
 
 ## Repo
 
 - Public: https://github.com/Mohamedhassan268/ai-guardian
-- Latest: Fusion v7 — persistence ceiling + corrected neighbour radius.
-  5/5 graded tests pass (2026-07-29).
+- Latest: Fusion v7 — persistence ceiling + corrected neighbour radius,
+  repo-relative data path. 5/5 graded tests pass, reproduced twice (2026-07-29).
